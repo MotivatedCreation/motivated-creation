@@ -1,0 +1,45 @@
+<% provide(:title, "Login") %>
+
+<!-- Container Start !-->
+<div class="container">
+    
+    <!-- Title Container Start !-->
+    <div class="title-content-container">
+        <%= image_tag "login-icon.png", :id => "login-title-logo" %>
+        <h1 class="title-header" id="login-title-header">Login.<span class="title-bar-span">|</span></h1>
+    </div>
+    <!-- Title Container End !-->
+    
+    <!-- Content Container Start !-->
+    <div class="content-container">
+        <!-- Collection Start !-->
+        <div class="collection">
+            
+            <div class="collection-cell" id="login-collection-cell">
+                <div class="collection-cell-header">
+                    
+                </div>
+                <div class="collection-cell-body">
+                    <label id="username-label">
+                        Username
+                    </label>
+                    <input id="username-text-input" type="text" name="username">
+                    
+                    <label id="password-label">
+                        Password
+                    </label>
+                    <input id="password-input" type="password" name="password">
+                </div>
+                <div class="collection-cell-footer">
+                    <a id="forgot-password-link" href="https://motivated-creation-jps3.c9users.io/static_pages/login">
+                        Forgot Password?
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+        <!-- Collection End !-->
+    </div>
+    <!-- Content Container End !-->
+</div>
+<!-- Container End !-->
