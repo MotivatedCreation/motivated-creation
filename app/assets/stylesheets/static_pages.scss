@@ -325,10 +325,22 @@
     height: auto;
 }
 
-#just-bucket-collection-cell
-{
-    width: auto;
+#just-bucket-collection-cell {
+    width: 240px;
 }
+
+#just-bucket-image
+{
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: 500px;
+}
+
+#just-bucket-collection-cell-body-paragraph {
+    padding: 0 0 20px 0;
+}
+
 /* Portfolio Page End */
 
 

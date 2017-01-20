@@ -1,5 +1,7 @@
 <% provide(:title, "Portfolio") %>
 
+<!-- rails s -b $IP -p $PORT !-->
+
 <!-- Container Start !-->
 <div class="container">
     
@@ -17,12 +19,18 @@
             
             <div class="collection-cell" id="just-bucket-collection-cell">
                 <div class="collection-cell-header">
-                    
+                    <h3 class="collection-cell-header-title">
+                        Just Bucket
+                    </h3>
                 </div>
                 <div class="collection-cell-body">
-                    <%= image_tag "just-bucket.png"%>
+                    <p class="collection-cell-body-paragraph" id="just-bucket-collection-cell-body-paragraph">
+                        An app designed specifically to help the user complete the things they want to do in their everyday life.
+                    </p>
+                    <%= image_tag "just-bucket.png", :id => "just-bucket-image" %>
                 </div>
                 <div class="collection-cell-footer">
+                    
                 </div>
             </div>
             
