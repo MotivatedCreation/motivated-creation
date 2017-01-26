@@ -89,6 +89,19 @@ body
     color: gray;
 }
 
+.email-input-text
+{
+    margin: 0;
+    padding: 5px;
+    font-family: "Courier New";
+}
+
+.password-input
+{
+    margin: 0;
+    padding: 5px;
+}
+
 .footer
 {
     left: 0;
@@ -133,11 +146,11 @@ body
     color: gray;
 }
 
-#home-navbar-item-link:hover { }
-
-#login-navbar-item-link:hover {
-    color: rgb(0, 194, 201);
+#authentication-navbar-item {
+    float: right;
 }
+
+#home-navbar-item-link:hover { }
 
 #clients-navbar-item-link:hover {
     color: rgb(223, 35, 24);
@@ -161,6 +174,10 @@ body
 
 #shop-navbar-item-link:hover {
     color: rgb(238, 168, 0);
+}
+
+#account-navbar-item-link:hover {
+    color: rgb(0, 194, 201);
 }
 
 #contact-footer-item-link:hover { }

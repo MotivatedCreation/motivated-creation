@@ -49,11 +49,5 @@ class StaticPagesControllerTest < ActionController::TestCase
     assert_response :success
     assert_select "title", "Shop | Motivated Creation"
   end
-  
-  test "should get login" do
-    get :login
-    assert_response :success
-    assert_select "title", "Login | Motivated Creation"
-  end
 
 end

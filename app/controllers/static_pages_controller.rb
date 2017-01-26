@@ -1,18 +1,18 @@
 class StaticPagesController < ApplicationController
   
   attr_accessor :logged_in
-  attr_accessor :show_navbar
   attr_accessor :current_page
+  attr_accessor :viewing_home_page
   
   def initialize
     super
     @logged_in = false
-    @show_navbar = true
+    @viewing_home_page = false
     @current_page = "Motivated Creation"
   end
 
   def home
-    @show_navbar = false
+    @viewing_home_page = true
   end
 
   def contact
@@ -41,10 +41,6 @@ class StaticPagesController < ApplicationController
   
   def shop
     @current_page = "Shop"
-  end
-  
-  def login
-    @current_page = "Login"
   end
   
 end

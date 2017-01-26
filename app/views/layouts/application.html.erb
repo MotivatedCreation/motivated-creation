@@ -11,59 +11,66 @@
     <!-- Container Start !-->
     <div class="page-container">
       
-      <% if @show_navbar %>
         <!-- Navigationbar Start !-->
         <ul class="navbar">
-          <li class="navbar-item">
-            <a id="home-navbar-item-link" href="home">Motivated Creation</a>
-          </li>
-          <% unless @logged_in %>
+          <% if @viewing_home_page and not @logged_in %>
+            <li class="navbar-item" id="authentication-navbar-item">
+              <%= image_tag "email-icon.png", :class => "navbar-item-image" %>
+              <input class="email-input-text" type="text" placeholder="email"> </input>
+              <input class="password-input" type="password" placeholder="password"> </input>
+            </li>
+          <% elsif not @viewing_home_page %>
             <li class="navbar-item">
-              <a id="login-navbar-item-link" href="login">
-                <%= image_tag "login-icon.png", :class => "navbar-item-image" %>
-                Login
+              <a id="home-navbar-item-link" href="home">Motivated Creation</a>
+            </li>
+            <li class="navbar-item">
+              <a id="clients-navbar-item-link" href="clients">
+                <%= image_tag "clients-icon.png", :class => "navbar-item-image" %>
+                Clients
               </a>
             </li>
+            <li class="navbar-item">
+              <a id="partners-navbar-item-link" href="partners">
+                <%= image_tag "partners-icon.png", :class => "navbar-item-image" %>
+                Partners
+              </a>
+            </li>
+            <li class="navbar-item">
+              <a id="portfolio-navbar-item-link" href="portfolio">
+                <%= image_tag "portfolio-icon.png", :class => "navbar-item-image" %>
+                Portfolio
+              </a>
+            </li>
+            <li class="navbar-item">
+              <a id="inquiry-navbar-item-link" href="inquiry">
+                <%= image_tag "inquiry-icon.png", :class => "navbar-item-image" %>
+                Inquiry
+              </a>
+            </li>
+            <li class="navbar-item">
+              <a id="reviews-navbar-item-link" href="reviews">
+                <%= image_tag "reviews-icon.png", :class => "navbar-item-image" %>
+                Reviews
+              </a>
+            </li>
+            <li class="navbar-item">
+              <a id="shop-navbar-item-link" href="shop">
+                <%= image_tag "shop-icon.png", :class => "navbar-item-image" %>
+                Shop
+              </a>
+            </li>
+            <li class="navbar-item">
+              <% unless @logged_in%>
+                <%= image_tag "email-icon.png", :class => "navbar-item-image" %>
+                <input class="email-input-text" type="text" placeholder="email"> </input>
+                <input class="password-input" type="password" placeholder="password"> </input>
+              <% else %>
+                <a id="account-navbar-item-link" href="account">Welcome, User.</a>
+              <% end %>
+            </li>
           <% end %>
-          <li class="navbar-item">
-            <a id="clients-navbar-item-link" href="clients">
-              <%= image_tag "clients-icon.png", :class => "navbar-item-image" %>
-              Clients
-            </a>
-          </li>
-          <li class="navbar-item">
-            <a id="partners-navbar-item-link" href="partners">
-              <%= image_tag "partners-icon.png", :class => "navbar-item-image" %>
-              Partners
-            </a>
-          </li>
-          <li class="navbar-item">
-            <a id="portfolio-navbar-item-link" href="portfolio">
-              <%= image_tag "portfolio-icon.png", :class => "navbar-item-image" %>
-              Portfolio
-            </a>
-          </li>
-          <li class="navbar-item">
-            <a id="inquiry-navbar-item-link" href="inquiry">
-              <%= image_tag "inquiry-icon.png", :class => "navbar-item-image" %>
-              Inquiry
-            </a>
-          </li>
-          <li class="navbar-item">
-            <a id="reviews-navbar-item-link" href="reviews">
-              <%= image_tag "reviews-icon.png", :class => "navbar-item-image" %>
-              Reviews
-            </a>
-          </li>
-          <li class="navbar-item">
-            <a id="shop-navbar-item-link" href="shop">
-              <%= image_tag "shop-icon.png", :class => "navbar-item-image" %>
-              Shop
-            </a>
-          </li>
         </ul>
         <!-- Navigationbar End !-->
-      <% end %>
       
       <!-- Page Content Start !-->
         <%= yield %>
