@@ -25,7 +25,7 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 45%;
+    height: 35%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -226,6 +226,12 @@
 
 /* Partners Page Start */
 
+.partner-image
+{
+    margin: 0;
+    padding: 100px;
+}
+
 #partners-title-logo
 {
     margin: 0;
@@ -236,6 +242,48 @@
 {
     width: 570px;
     animation: extend-width 1.5s steps(15, end);
+}
+
+#apple-partner-image
+{
+    height: auto;
+    width: 10%;
+}
+
+#microsoft-partner-image
+{
+    height: auto;
+    width: 20%;
+}
+
+#airbnb-partner-image
+{
+    height: auto;
+    width: 15%;
+}
+
+#twitter-partner-image
+{
+    height: auto;
+    width: 20%;
+}
+
+#facebook-partner-image
+{
+    height: auto;
+    width: 20%;
+}
+
+#dropbox-partner-image
+{
+    height: auto;
+    width: 13%;
+}
+
+#expedia-partner-image
+{
+    height: auto;
+    width: 20%;
 }
 
 /* Partners Page End */
