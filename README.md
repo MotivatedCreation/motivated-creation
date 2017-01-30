@@ -1,1 +1,1 @@
-A mobile application software development company website for displaying commercial applications, quote scheduling and job scheduling.
+A mobile application software development company website for checking on a project, viewing clients, contact information, viewing partners, our portfolio, inquiries, reviews, and company merchandise.

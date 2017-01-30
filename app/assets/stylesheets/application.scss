@@ -27,13 +27,16 @@ body
     width: 100%;
     height: 100%;
 }
-
+  
 .page-container
 {
+    right: 0;
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
+    position: fixed;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .navbar
@@ -44,10 +47,16 @@ body
     padding: 0;
     width: 100%;
     height: 66px;
-    text-align:  right;
+    text-align: right;
     position: absolute;
-    list-style-type: none;
     background-color: rgba(252, 252, 252, 0.9);
+}
+
+.navbar-list
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
 .navbar .navbar-item
@@ -74,19 +83,59 @@ body
     vertical-align: middle;
 }
 
-.navbar .navbar-item:first-child
-{
-    float: left;
-    padding-top: 5px;
-    padding-left: 23px;
-}
-
-.navbar .navbar-item:last-child {
-    padding-right: 23px;
-}
-
 .navbar .navbar-item a:hover {
     color: gray;
+}
+
+.navbar-menu
+{
+    right: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 200px;
+    position: absolute;
+    background-color: rgba(225, 225, 225, 1);
+}
+
+.navbar-menu-list
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.navbar-menu .navbar-menu-item
+{
+    margin: 0;
+    padding: 18px 0 0 20px;
+    width: calc(100% - 20px);
+    height: 48px;
+    display: inline-block;
+}
+
+.navbar-menu .navbar-menu-item:hover {
+    background-color: rgba(235, 235, 235, 0.9);
+}
+
+.navbar-menu .navbar-menu-item a
+{
+    color: black;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.navbar-menu .navbar-menu-item a:hover {
+    color: gray;
+}
+
+.navbar-menu .navbar-menu-item-image
+{
+    margin: 0;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
 }
 
 .email-input-text
@@ -100,6 +149,7 @@ body
 {
     margin: 0;
     padding: 5px;
+    font-family: "Courier New";
 }
 
 .footer
@@ -146,37 +196,44 @@ body
     color: gray;
 }
 
-#authentication-navbar-item {
-    float: right;
+#home-navbar-item
+{
+    float: left;
+    padding-top: 5px;
+    padding-left: 23px;
+}
+
+#menu-navbar-item {
+    display: inline-block;
 }
 
 #home-navbar-item-link:hover { }
 
-#clients-navbar-item-link:hover {
+#clients-navbar-menu-item-link:hover {
     color: rgb(223, 35, 24);
 }
 
-#partners-navbar-item-link:hover {
+#partners-navbar-menu-item-link:hover {
     color: rgb(0, 117, 221);
 }
 
-#portfolio-navbar-item-link:hover {
+#portfolio-navbar-menu-item-link:hover {
     color: rgb(245, 104, 2);
 }
 
-#inquiry-navbar-item-link:hover {
+#inquiry-navbar-menu-item-link:hover {
     color: rgb(1, 170, 29);
 }
 
-#reviews-navbar-item-link:hover {
+#reviews-navbar-menu-item-link:hover {
     color: rgb(135, 49, 207);
 }
 
-#shop-navbar-item-link:hover {
+#shop-navbar-menu-item-link:hover {
     color: rgb(238, 168, 0);
 }
 
-#account-navbar-item-link:hover {
+#account-navbar-menu-item-link:hover {
     color: rgb(0, 194, 201);
 }
 

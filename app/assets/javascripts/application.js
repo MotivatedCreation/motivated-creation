@@ -14,3 +14,25 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+var showNavbarMenu = false
+
+function closeNavbarMenu() {
+    $('.page-container').animate({right: '0'});
+}
+
+function openNavbarMenu() {
+    $('.page-container').animate({right: '200px'});
+}
+
+function toggleNavbarMenu()
+{
+    showNavbarMenu = !showNavbarMenu;
+    
+    if (showNavbarMenu) {
+        openNavbarMenu();
+    }
+    else {
+        closeNavbarMenu();
+    }
+}
