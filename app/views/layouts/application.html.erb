@@ -6,11 +6,14 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body onclick="openContentContainer()">
 
     <!-- Navigationbar Menu Start !-->
       <div class="navbar-menu">
         <ul class="navbar-menu-list">
+          <li class="navbar-menu-item" id="home-navbar-menu-item">
+            <a id="home-navbar-menu-item-link" href="home">Motivated Creation</a>
+          </li>
           <li class="navbar-menu-item">
             <a id="clients-navbar-menu-item-link" href="clients">
               <%= image_tag "clients-icon.png", :class => "navbar-menu-item-image" %>
@@ -57,11 +60,6 @@
       <!-- Navigationbar Start !-->
       <navbar class="navbar">
         <ul class="navbar-list">
-          <% if not @viewing_home_page %>
-            <li class="navbar-item" id="home-navbar-item">
-              <a id="home-navbar-item-link" href="home">Motivated Creation</a>
-            </li>
-          <% end %>
           <% if not @logged_in %>
             <li class="navbar-item" id="authentication-navbar-item">
               <%= image_tag "email-icon.png", :class => "navbar-item-image" %>
@@ -69,9 +67,11 @@
               <input class="password-input" type="password" placeholder="password"> </input>
             </li>
           <% end %>
+          <% if not @viewing_home_page %>
           <li class="navbar-item" id="menu-navbar-item">
-            <a href="javascript:void(0);" onclick="toggleNavbarMenu()">&#9776;</a>
+            <a id="menu-navbar-item-link" href="javascript:void(0);" onclick="toggleNavbarMenu()">&#9776;</a>
           </li>
+          <% end %>
         </ul>
       </navbar>
       <!-- Navigationbar End !-->

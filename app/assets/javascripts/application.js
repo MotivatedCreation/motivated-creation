@@ -18,11 +18,11 @@
 var showNavbarMenu = false
 
 function closeNavbarMenu() {
-    $('.page-container').animate({right: '0'});
+    $('.page-container').animate({left: '0'});
 }
 
 function openNavbarMenu() {
-    $('.page-container').animate({right: '200px'});
+    $('.page-container').animate({left: '200px'});
 }
 
 function toggleNavbarMenu()
@@ -35,4 +35,9 @@ function toggleNavbarMenu()
     else {
         closeNavbarMenu();
     }
+}
+
+function openContentContainer()
+{
+    $('.content-container').animate({height: '100%'});
 }

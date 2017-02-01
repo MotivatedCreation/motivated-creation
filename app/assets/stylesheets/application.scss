@@ -30,7 +30,6 @@ body
   
 .page-container
 {
-    right: 0;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -89,7 +88,7 @@ body
 
 .navbar-menu
 {
-    right: 0;
+    left: 0;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -196,18 +195,16 @@ body
     color: gray;
 }
 
-#home-navbar-item
+#menu-navbar-item
 {
+    margin: 0;
     float: left;
-    padding-top: 5px;
-    padding-left: 23px;
+    padding: 0 0 0 20px;
 }
 
-#menu-navbar-item {
-    display: inline-block;
-}
+#home-navbar-menu-item { }
 
-#home-navbar-item-link:hover { }
+#home-navbar-menu-item-link:hover { }
 
 #clients-navbar-menu-item-link:hover {
     color: rgb(223, 35, 24);
