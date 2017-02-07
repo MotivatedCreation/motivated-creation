@@ -1,0 +1,15 @@
+// Place all the styles related to the Shop controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#shop-title-logo
+{
+    margin: 0;
+    padding: 20px;
+}
+
+#shop-title-header
+{
+    width: 330px;
+    animation: extend-width 1.2s steps(15, end);
+}

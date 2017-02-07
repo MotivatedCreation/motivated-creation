@@ -1,0 +1,35 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#home-title-header {
+    width: 1170px;
+}
+
+#login-collection-cell-link:hover {
+    color: rgb(0, 194, 201);
+}
+
+#clients-collection-cell-link:hover {
+    color: rgb(223, 35, 24);
+}
+
+#partners-collection-cell-link:hover {
+    color: rgb(0, 117, 221);
+}
+
+#portfolio-collection-cell-link:hover {
+    color: rgb(245, 104, 2);
+}
+
+#inquiry-collection-cell-link:hover {
+    color: rgb(1, 170, 29);
+}
+
+#reviews-collection-cell-link:hover {
+    color: rgb(135, 49, 207);
+}
+
+#shop-collection-cell-link:hover {
+    color: rgb(238, 168, 0);
+}

@@ -1,3 +1,5 @@
+<% provide(:title, @page_name) %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,9 +8,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body onclick="openContentContainer()">
-
-    <!-- Navigationbar Menu Start !-->
+  <body>
+      
+    <!-- Navigationbar Menu Start -->
       <div class="navbar-menu">
         <ul class="navbar-menu-list">
           <li class="navbar-menu-item" id="home-navbar-menu-item">
@@ -55,32 +57,32 @@
     <!-- Navigationbar Menu End !-->
       
     <!-- Container Start !-->
-    <div class="page-container">
+    <div class="container">
       
-      <!-- Navigationbar Start !-->
+      <!-- Page Content Start !-->
+      <%= yield %>
+      <!-- Page Content End !-->
+      
+      <!-- Navigationbar Start -->
       <navbar class="navbar">
         <ul class="navbar-list">
           <% if not @logged_in %>
-            <li class="navbar-item" id="authentication-navbar-item">
-              <%= image_tag "email-icon.png", :class => "navbar-item-image" %>
+            <li class="navbar-list-item" id="authentication-navbar-list-item">
+              <%= image_tag "email-icon.png", :class => "navbar-list-item-image" %>
               <input class="email-input-text" type="text" placeholder="email"> </input>
               <input class="password-input" type="password" placeholder="password"> </input>
             </li>
           <% end %>
           <% if not @viewing_home_page %>
-          <li class="navbar-item" id="menu-navbar-item">
-            <a id="menu-navbar-item-link" href="javascript:void(0);" onclick="toggleNavbarMenu()">&#9776;</a>
+          <li class="navbar-list-item" id="menu-navbar-list-item">
+            <a id="menu-navbar-list-item-link" href="javascript:void(0);" onclick="toggleNavbarMenu()">&#9776;</a>
           </li>
           <% end %>
         </ul>
       </navbar>
       <!-- Navigationbar End !-->
       
-      <!-- Page Content Start !-->
-        <%= yield %>
-      <!-- Page Content End !-->
-      
-      <!-- Footer Start !-->
+      <!-- Footer Start -->
       <ul class="footer">
         <li class="footer-item">
           <a href="contact">Contact</a>

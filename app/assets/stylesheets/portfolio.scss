@@ -1,0 +1,38 @@
+// Place all the styles related to the Portfolio controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#portfolio-title-logo
+{
+    margin: 0;
+    padding: 20px;
+}
+
+#portfolio-title-header
+{
+    width: 630px;
+    animation: extend-width 1.5s steps(15, end);
+}
+
+#app-store-badge-image
+{
+    float: right;
+    width: 300px;
+    height: auto;
+}
+
+#just-bucket-collection-cell {
+    width: 240px;
+}
+
+#just-bucket-image
+{
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: 500px;
+}
+
+#just-bucket-collection-cell-body-paragraph {
+    padding: 0 0 20px 0;
+}

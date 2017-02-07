@@ -1,0 +1,63 @@
+// Place all the styles related to the Partners controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.partner-image
+{
+    margin: 0;
+    padding: 100px;
+}
+
+#partners-title-logo
+{
+    margin: 0;
+    padding: 20px;
+}
+
+#partners-title-header
+{
+    width: 570px;
+    animation: extend-width 1.5s steps(15, end);
+}
+
+#apple-partner-image
+{
+    height: auto;
+    width: 10%;
+}
+
+#microsoft-partner-image
+{
+    height: auto;
+    width: 20%;
+}
+
+#airbnb-partner-image
+{
+    height: auto;
+    width: 15%;
+}
+
+#twitter-partner-image
+{
+    height: auto;
+    width: 20%;
+}
+
+#facebook-partner-image
+{
+    height: auto;
+    width: 20%;
+}
+
+#dropbox-partner-image
+{
+    height: auto;
+    width: 13%;
+}
+
+#expedia-partner-image
+{
+    height: auto;
+    width: 20%;
+}
