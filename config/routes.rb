@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'home#home'
   
   match 'home', to: 'home#home', via: [:get]
+  match 'account', to: 'account#account', via: [:get]
   match 'contact', to: 'contact#contact', via: [:get]
   match 'clients', to: 'clients#clients', via: [:get]
   match 'reviews', to: 'reviews#reviews', via: [:get]

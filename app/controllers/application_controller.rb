@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   
   def initialize
     super
-    @logged_in = false
+    @logged_in = true
     @viewing_home_page = false
     @page_name = "Motivated Creation"
   end

@@ -1,0 +1,15 @@
+// Place all the styles related to the Account controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#account-title-logo
+{
+    margin: 0;
+    padding: 20px;
+}
+
+#account-title-header
+{
+    width: 510px;
+    animation: extend-width 1.4s steps(15, end);
+}
