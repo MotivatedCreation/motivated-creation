@@ -2,22 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.partner-image
-{
-    margin: 0;
-    padding: 100px;
-}
+@import 'application';
 
-#partners-title-logo
-{
-    margin: 0;
-    padding: 20px;
-}
+
+/********* Title Content Start *********/
 
 #partners-title-header
 {
     width: 570px;
-    animation: extend-width 1.5s steps(15, end);
+    
+    @include animation(extend-width, 1.5s, steps(15, end));
+}
+
+/********* Title Content End *********/
+
+
+.partner-image
+{
+    margin: 0;
+    padding: 100px;
 }
 
 #apple-partner-image
@@ -61,3 +64,15 @@
     height: auto;
     width: 20%;
 }
+
+
+/********* Media Start *********/
+
+@media all and (max-width: 414px)
+{
+    #partners-title-header {
+        width: 172.5px;
+    }
+}
+
+/********* Media End **********/

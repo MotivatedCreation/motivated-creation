@@ -2,14 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#account-title-logo
-{
-    margin: 0;
-    padding: 20px;
-}
+@import 'application';
+
 
 #account-title-header
 {
     width: 510px;
-    animation: extend-width 1.4s steps(15, end);
+    
+    @include animation(extend-width, 1.4s, steps(15, end));
 }
+
+
+/********* Media Start *********/
+
+@media all and (max-width: 414px)
+{
+    #account-title-header {
+        width: 152.5px;
+    }
+}
+
+/********* Media End **********/

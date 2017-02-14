@@ -2,16 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#portfolio-title-logo
-{
-    margin: 0;
-    padding: 20px;
-}
+@import 'application';
+
 
 #portfolio-title-header
 {
     width: 630px;
-    animation: extend-width 1.5s steps(15, end);
+    
+    @include animation(extend-width, 1.5s, steps(15, end));
 }
 
 #app-store-badge-image
@@ -36,3 +34,15 @@
 #just-bucket-collection-cell-body-paragraph {
     padding: 0 0 20px 0;
 }
+
+
+/********* Media Start *********/
+
+@media all and (max-width: 414px)
+{
+    #portfolio-title-header {
+        width: 190px;
+    }
+}
+
+/********* Media End **********/

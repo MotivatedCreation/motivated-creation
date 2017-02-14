@@ -9,7 +9,6 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-      
     <!-- Navigationbar Menu Start -->
       <div class="navbar-menu">
         <ul class="navbar-menu-list">
@@ -82,14 +81,12 @@
             </li>
           <% else %>
             <li class="navbar-list-item" id="account-navbar-list-item">
-              <a href="#"> Welcome, User.</a>
+              <a href="account"> Welcome, User.</a>
             </li>
           <% end %>
-          <% if not @viewing_home_page %>
           <li class="navbar-list-item" id="menu-navbar-list-item">
             <a id="menu-navbar-list-item-link" href="javascript:void(0);" onclick="toggleNavbarMenu()">&#9776;</a>
           </li>
-          <% end %>
         </ul>
       </navbar>
       <!-- Navigationbar End !-->

@@ -2,14 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#shop-title-logo
-{
-    margin: 0;
-    padding: 20px;
-}
+@import 'application';
+
 
 #shop-title-header
 {
     width: 330px;
-    animation: extend-width 1.2s steps(15, end);
+    
+    @include animation(extend-width, 1.2s, steps(15, end));
 }
+
+/********* Media Start *********/
+
+@media all and (max-width: 414px)
+{
+    #shop-title-header {
+        width: 99px;
+    }
+}
+
+/********* Media End **********/

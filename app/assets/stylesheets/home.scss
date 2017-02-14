@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import 'application';
+
+
 #home-title-header {
     width: 1170px;
 }
@@ -33,3 +36,15 @@
 #shop-collection-cell-link:hover {
     color: rgb(238, 168, 0);
 }
+
+
+/********* Media Start *********/
+
+@media all and (max-width: 414px)
+{
+    #home-title-header {
+        width: 552.5px;
+    }
+}
+
+/********* Media End **********/

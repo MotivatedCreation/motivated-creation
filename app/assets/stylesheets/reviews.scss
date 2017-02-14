@@ -2,16 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#reviews-title-logo
-{
-    margin: 0;
-    padding: 20px;
-}
+@import 'application';
+
 
 #reviews-title-header
 {
     width: 510px;
-    animation: extend-width 1.5s steps(15, end);
+    
+    @include animation(extend-width, 1.5s, steps(15, end));
 }
 
 #reviews-collection-cell
@@ -23,3 +21,15 @@
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
     background-color: rgba(135, 49, 207, 0.3);
 }
+
+
+/********* Media Start *********/
+
+@media all and (max-width: 414px)
+{
+    #reviews-title-header {
+        width: 152.5px;
+    }
+}
+
+/********* Media End **********/

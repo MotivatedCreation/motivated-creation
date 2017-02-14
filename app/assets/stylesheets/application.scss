@@ -14,6 +14,22 @@
  *= require_self
  */
 
+
+/********* Mixins Start *********/
+
+@mixin animation($keyframes, $duration, $steps)
+{
+    -webkit-animation: $keyframes $duration $steps;
+    -moz-animation: $keyframes $duration $steps;
+    -ms-animation: $keyframes $duration $steps;
+    animation: $keyframes $duration $steps;
+}
+
+/********* Mixins End *********/
+
+
+/********* Main Start *********/
+
 html
 {
     width: 100%;
@@ -29,6 +45,7 @@ html
     }
 }
 
+/********* Main End *********/
 
 /********* Container Start *********/
 
@@ -238,7 +255,7 @@ $footerHeight: 66px;
 .title-content-container
 {
     margin: 0;
-    padding: 0;
+    padding: ($navbarHeight + 10px) 0 0 0;
     width: 100%;
     height: 35%;
     display: flex;
@@ -248,19 +265,28 @@ $footerHeight: 66px;
     background-color: white;
     box-shadow: inset 0 -100px 250px -100px rgb(210, 210, 210);
     
+    .title-logo
+    {
+        margin: 0;
+        padding: 20px;
+        height: 100px;
+    }
+    
     .title-header
     {
+        margin: 0;
+        padding: 0;
         color: black;
         font-size: 100px;
         font-weight: 333;
         overflow: hidden;
         white-space: nowrap;
-        margin: 10px 0 0 10px;
-        animation: extend-width 3s steps(33, end);
+        
+        @include animation(extend-width, 3s, steps(33, end));
     }
 
     .title-bar-span {
-        animation: "blink" 1.3s infinite;
+        @include animation(blink, 1.3s, infinite);
     }
 }
 
@@ -391,15 +417,65 @@ $footerHeight: 66px;
 #contact-footer-item-link:hover { }
 
 
-/* Keyframes Start */
+/********* Keyframes Start *********/
 
-@keyframes extend-width
-{
+@keyframes extend-width {
     from { width: 0; }
 }
 
-@keyframes "blink" {
+@-webkit-keyframes extend-width {
+    from { width: 0; }
+}
+
+@-moz-keyframes extend-width {
+    from { width: 0; }
+}
+
+@-ms-keyframes extend-width {
+    from { width: 0; }
+}
+
+
+@keyframes blink {
     to { opacity: .0; }
 }
 
-/* Keyframes End */
+@-webkit-keyframes blink {
+    to { opacity: .0; }
+}
+
+@-moz-keyframes blink {
+    to { opacity: .0; }
+}
+
+@-ms-keyframes blink {
+    to { opacity: .0; }
+}
+          
+/******** Keyframes End *********/
+
+
+/********* Media Start *********/
+
+@media all and (max-width: 414px)
+{
+    .title-content-container
+    {
+        .title-logo {
+            height: 50px;
+        }
+    
+        .title-header {
+            font-size: 30px;
+        }
+    }
+    
+    .footer
+    {
+        .footer-item {
+            font-size: 6px;
+        }
+    }
+}
+
+/********* Media End **********/
