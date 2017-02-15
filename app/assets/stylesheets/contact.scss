@@ -9,7 +9,7 @@
 
 #contact-title-header
 {
-    width: 510px;
+    width: 400px;
     
     @include animation(extend-width, 1.5s, steps(15, end));
 }

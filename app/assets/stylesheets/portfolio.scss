@@ -7,7 +7,7 @@
 
 #portfolio-title-header
 {
-    width: 630px;
+    width: 410px;
     
     @include animation(extend-width, 1.5s, steps(15, end));
 }
@@ -31,7 +31,9 @@
     height: 500px;
 }
 
-#just-bucket-collection-cell-body-paragraph {
+#just-bucket-collection-cell-body-paragraph
+{
+    font-weight: 200;
     padding: 0 0 20px 0;
 }
 

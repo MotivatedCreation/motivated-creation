@@ -9,7 +9,7 @@
 
 #partners-title-header
 {
-    width: 570px;
+    width: 410px;
     
     @include animation(extend-width, 1.5s, steps(15, end));
 }
@@ -20,7 +20,8 @@
 .partner-image
 {
     margin: 0;
-    padding: 100px;
+    padding: 40px;
+    padding-bottom: 90px;
 }
 
 #apple-partner-image
