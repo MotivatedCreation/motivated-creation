@@ -17,6 +17,7 @@
 
 /********* Variables Start *********/
 
+$borderRadius: 3px;
 $navbarHeight: 66px;
 $footerHeight: $navbarHeight;
 
@@ -104,7 +105,7 @@ html
 
 /********* Alerts Start *********/
 
-.alert-container
+.alert
 {
     top: 30%;
     margin: 0;
@@ -164,31 +165,140 @@ html
         border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
 
-    @include border-radius(3px);
+    @include border-radius($borderRadius);
 }
 
-.alert-container-success
+.alert-success
 {
-    @extend .alert-container;
+    @extend .alert;
     
     background-color: rgba(1, 170, 29, 0.9);
 }
 
-.alert-container-error
+.alert-error
 {
-    @extend .alert-container;
+    @extend .alert;
     
     background-color: rgba(253, 65, 54, 0.9);
 }
 
-.alert-container-warning
+.alert-warning
 {
-    @extend .alert-container;
+    @extend .alert;
     
     background-color: rgba(255, 185, 0, 0.9);
 }
     
 /********* Alerts End *********/
+
+
+/********* Login Popover Start *********/
+
+.popover
+{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    background-color: white;
+    
+    .popover-header {
+        padding: 10px;
+    }
+    
+    .popover-content {
+        padding: 10px;
+    }
+    
+    .popover-footer {
+        padding: 10px;
+    }
+    
+    @include border-radius($borderRadius);
+}
+
+#authentication-popover
+{
+    height: 0;
+    left: calc(100% - 200px);
+    top: ($navbarHeight - 10px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        
+    .popover-content
+    {
+        .email-input-text
+        {
+            padding: 8px;
+            border: none;
+            display: block;
+            font-size: 12px;
+            margin: 0 0 10px 0;
+            width: calc(100% - 20px);
+            font-family: 'Open Sans', sans-serif;
+            border: 1px solid rgb(230, 230, 230);
+    
+            @include border-radius($borderRadius)
+        }
+
+        .password-input
+        {
+            margin: 0;
+            padding: 8px;
+            display: block;
+            font-size: 12px;
+            width: calc(100% - 20px);
+            font-family: 'Open Sans', sans-serif;
+            border: 1px solid rgb(230, 230, 230);
+    
+            @include border-radius($borderRadius)
+        }
+    }
+
+    .popover-footer
+    {
+        text-align: center;
+        
+        .login-button
+        {
+            width: 100%;
+            border: none;
+            color: white;
+            margin: 0 auto;
+            display: block;
+            font-size: 12px;
+            font-family: 'Open Sans', sans-serif;
+            padding: 9px 18px 9px 18px;
+            background: rgb(0, 194, 201);
+    
+            @include border-radius($borderRadius)
+        }
+
+        .login-button:hover
+        {
+            cursor: pointer;
+            background: rgb(0, 184, 191);
+            box-shadow: inset 0 0 10px 0 rgba(30, 30, 30, 0.2);
+        }
+    
+        .authentication-accessory-button
+        {
+            margin: 0 10px;
+            padding: 0;
+            border: none;
+            font-size: 11px;
+            background: none;
+            color: rgb(0, 194, 201);
+        }
+        
+        .authentication-accessory-button:hover
+        {
+            cursor: pointer;
+            color: rgb(0, 164, 171);
+        }
+    }
+}
+
+/********* Login Popover End *********/
 
 
 /********* Navbar Start *********/
@@ -214,7 +324,7 @@ html
         
         .navbar-list-item
         {
-            top: 16px;
+            top: 12px;
             position: relative;
             padding: 0 20px 0 0;
             display: inline-block;
@@ -230,13 +340,34 @@ html
                 color: gray;
             }
             
-            .navbar-list-item-image
+            .navbar-list-item-accessory
             {
                 margin: 0;
                 padding: 0;
-                width: 30px;
-                height: 30px;
-                vertical-align: middle;
+                width: 40px;
+                height: 40px;
+            }
+            
+            .navbar-list-item-image {
+                @extend .navbar-list-item-accessory;
+            }
+            
+            .navbar-list-item-button
+            {
+                @extend .navbar-list-item-accessory;
+                
+                border: none;
+                background: none;
+                
+                @include border-radius($borderRadius);
+            }
+            
+            .navbar-list-item-button:hover
+            {
+                cursor: pointer;
+                background-color: rgb(240, 240, 240);
+                border: 1px solid rgb(210, 210, 210);
+                box-shadow: inset 0 0 10px 0 rgba(220, 220, 220, 1);
             }
         }
     }
@@ -286,10 +417,10 @@ html
 
             .navbar-menu-item-image
             {
-                margin: 0 10px 0 0;
                 padding: 0;
                 width: 30px;
                 height: 30px;
+                margin: 0 10px 0 0;
                 vertical-align: middle;
             }
         }
@@ -298,51 +429,6 @@ html
             background-color: rgba(235, 235, 235, 0.9);
         }
     }
-}
-
-.email-input-text
-{
-    margin: 0;
-    padding: 8px;
-    border: none;
-    font-size: 12px;
-    font-family: 'Open Sans', sans-serif;
-    border: 1px solid rgb(230, 230, 230);
-    
-    @include border-radius(3px)
-}
-
-.password-input
-{
-    margin: 0;
-    padding: 8px;
-    font-size: 12px;
-    font-family: 'Open Sans', sans-serif;
-    border: 1px solid rgb(230, 230, 230);
-    
-    @include border-radius(3px)
-}
-
-.authentication-button
-{
-    margin: 0;
-    border: none;
-    color: white;
-    font-size: 12px;
-    text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
-    padding: 9px 18px 9px 18px;
-    background: rgb(0, 194, 201);
-    
-    @include border-radius(3px)
-}
-
-.authentication-button:hover
-{
-    cursor: pointer;
-    text-decoration: none;
-    background: rgb(0, 184, 191);
-    box-shadow: inset 0 0 10px 0 rgba(30, 30, 30, 0.2);
 }
 
 /********* Navbar Menu End *********/
@@ -453,7 +539,6 @@ html
         margin: 10px;
         width: 230px;
         padding: 10px;
-        border-radius: 5px;
         display: inline-block;
         
         .collection-cell-header
@@ -515,6 +600,8 @@ html
                 padding: 0;
             }
         }
+        
+        @include border-radius($borderRadius);
     }
 }
 
@@ -527,12 +614,18 @@ html
     padding: 0 0 0 20px;
 }
 
+#authentication-navbar-list-item-button
+{
+    background: url("account-icon.png") no-repeat center center;
+    background-size: 30px;
+}
+            
 #home-navbar-menu-item
 {
     height: 58px;
-    margin: -10px 0 0 0;
+    margin: -5px 0 0 0;
 }
-
+            
 #home-navbar-menu-list-item-link:hover { }
 
 #clients-navbar-menu-item-link:hover {

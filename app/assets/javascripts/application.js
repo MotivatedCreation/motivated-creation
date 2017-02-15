@@ -16,17 +16,26 @@
 //= require_tree .
 
 var showNavbarMenu = false
+var showAuthenticationPopover = false
 
 $(document).on('click', '.alert-button-close', function () {
     $('.overlay').hide();
 });
 
-function closeNavbarMenu() {
-    $('.container').animate({left: '0'});
+function openAuthenticationPopover() {
+    $('#authentication-popover').animate({height: '220px'});
+}
+
+function closeAuthenticationPopover() {
+    $('#authentication-popover').animate({height: '0'});
 }
 
 function openNavbarMenu() {
     $('.container').animate({left: '200px'});
+}
+
+function closeNavbarMenu() {
+    $('.container').animate({left: '0'});
 }
 
 function toggleNavbarMenu()
@@ -38,5 +47,17 @@ function toggleNavbarMenu()
     }
     else {
         closeNavbarMenu();
+    }
+}
+
+function toggleAuthenticationPopover()
+{
+    showAuthenticationPopover = !showAuthenticationPopover;
+    
+    if (showAuthenticationPopover) {
+        openAuthenticationPopover();
+    }
+    else {
+        closeAuthenticationPopover();
     }
 }
