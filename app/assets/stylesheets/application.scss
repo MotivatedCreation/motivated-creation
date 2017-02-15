@@ -50,7 +50,7 @@ html
 {
     width: 100%;
     height: 100%;
-    font-family: "Helvetica Neue";
+    font-family: 'Open Sans', sans-serif;
     
     body
     {
@@ -104,52 +104,88 @@ html
 
 /********* Alerts Start *********/
 
-.alert
+.alert-container
 {
-    top: 25%;
+    top: 30%;
     margin: 0;
+    padding: 0;
     width: 600px;
     height: auto;
     color: white;
-    top: $navbarHeight;
     position: relative;
     left: calc(50% - 300px);
-    padding: 0 10px 10px 10px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 
     ul li {
         margin: 0;
         padding: 5px;
     }
-        
-    .alert-button-close
+      
+    .alert-header
     {
         margin: 0;
-        color: white;
-        border: none;
-        font-size: 25px;
-        cursor: pointer;
-        background: none;
-        position: relative;
-        padding: 0 10px 0 0;
-        left: calc(100% - 15px);
+        height: auto;
+        display: flex;
+        padding: 0 10px 10px 10px;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        
+        .alert-header-title
+        {
+            margin: 0;
+            font-size: 18px;
+            padding: 10px 0 0 5px;
+            display: inline-block;
+        }
+        
+        .alert-button-close
+        {
+            margin: 0;
+            border: none;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+            background: none;
+            padding: 5px 0 0 5px;
+        }
+        
+        .alert-button-close:hover {
+            color: rgb(200, 200, 200);
+        }
+    }
+    
+    .alert-content {
+        font-size: 13px;
+    }
+    
+    .alert-footer
+    {
+        padding: 0 10px 10px 10px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     @include border-radius(3px);
 }
 
-.alert-success
+.alert-container-success
 {
-    @extend .alert;
+    @extend .alert-container;
     
-    background-color: green;
+    background-color: rgba(1, 170, 29, 0.9);
 }
 
-.alert-error
+.alert-container-error
 {
-    @extend .alert;
+    @extend .alert-container;
     
-    background-color: rgba(253, 65, 54, 0.95);
+    background-color: rgba(253, 65, 54, 0.9);
+}
+
+.alert-container-warning
+{
+    @extend .alert-container;
+    
+    background-color: rgba(255, 185, 0, 0.9);
 }
     
 /********* Alerts End *********/
@@ -218,6 +254,7 @@ html
     padding: 0;
     height: 100%;
     width: 200px;
+    overflow: auto;
     position: fixed;
     background-color: rgba(225, 225, 225, 1);
     
@@ -269,7 +306,7 @@ html
     padding: 8px;
     border: none;
     font-size: 12px;
-    font-family: "Helvetica Neue";
+    font-family: 'Open Sans', sans-serif;
     border: 1px solid rgb(230, 230, 230);
     
     @include border-radius(3px)
@@ -280,7 +317,7 @@ html
     margin: 0;
     padding: 8px;
     font-size: 12px;
-    font-family: "Helvetica Neue";
+    font-family: 'Open Sans', sans-serif;
     border: 1px solid rgb(230, 230, 230);
     
     @include border-radius(3px)
@@ -293,7 +330,7 @@ html
     color: white;
     font-size: 12px;
     text-decoration: none;
-    font-family: "Helvetica Neue";
+    font-family: 'Open Sans', sans-serif;
     padding: 9px 18px 9px 18px;
     background: rgb(0, 194, 201);
     

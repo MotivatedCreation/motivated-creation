@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   </head>
   <body>
     <!-- Navigationbar Menu Start -->
@@ -107,25 +108,38 @@
       </ul>
       <!-- Footer End !-->
       
-      <% if flash[:error] or flash[:success] %>
-      <!-- Overlay Start !-->
-      <div class="overlay">
-        <!-- Authentication Alerts Start --!>
-        <% flash.each do |type, messages| %>
-          <div class="alert-<%= type %>">
-            <button class="alert-button-close" type="submit">&times;</button>
-            <ul>
-              <% messages.each do |message| %>
-                <li>
-                  <%= message %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <!-- Authentication Alerts End --!>
-      </div>
-      <!-- Overlay End !-->
+      <% if flash[:error] or flash[:success] or flash[:warning] %>
+        <!-- Overlay Start !-->
+        <div class="overlay">
+          <% flash.each do |type, messages| %>
+            <!-- Authentication Alerts Start -->
+            <div class="alert-container-<%= type %>">
+              <div class="alert-header">
+                <label class="alert-header-title">
+                  <% if flash[:error] or flash[:warning] %>
+                    <%= pluralize(messages.count, type) %>
+                  <% else %>
+                    <%= type %>
+                  <% end %>
+                </label>
+                <button class="alert-button-close" type="submit">&times;</button>
+              </div>
+              <div class="alert-content">
+                <ul>
+                  <% messages.each do |message| %>
+                    <li>
+                      <%= message %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+              <div class="alert-footer">
+              </div>
+            </div>
+            <!-- Authentication Alerts End -->
+          <% end %>
+        </div>
+        <!-- Overlay End !-->
       <% end %>
       
     </div>
