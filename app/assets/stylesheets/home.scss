@@ -5,9 +5,24 @@
 @import 'application';
 
 
-#home-title-header {
-    width: 1170px;
+/********* Logo Start *********/
+
+.logo-container
+{
+    .logo-image
+    {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 80%;
+        height: auto;
+        margin: auto;
+        position: absolute;
+    }
 }
+
+/********* Logo Start *********/
 
 #login-collection-cell-link:hover {
     color: rgb(0, 194, 201);
@@ -36,15 +51,3 @@
 #shop-collection-cell-link:hover {
     color: rgb(238, 168, 0);
 }
-
-
-/********* Media Start *********/
-
-@media all and (max-width: 414px)
-{
-    #home-title-header {
-        width: 552.5px;
-    }
-}
-
-/********* Media End **********/

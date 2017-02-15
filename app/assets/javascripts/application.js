@@ -17,6 +17,10 @@
 
 var showNavbarMenu = false
 
+$(document).on('click', '.alert-button-close', function () {
+    $('.overlay').hide();
+});
+
 function closeNavbarMenu() {
     $('.container').animate({left: '0'});
 }

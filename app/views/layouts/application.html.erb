@@ -13,7 +13,9 @@
       <div class="navbar-menu">
         <ul class="navbar-menu-list">
           <li class="navbar-menu-item" id="home-navbar-menu-item">
-            <a id="home-navbar-menu-item-link" href="home">Motivated Creation</a>
+            <a id="home-navbar-menu-item-link" href="home">
+              <%= image_tag "logo-small.png"%>
+            </a>
           </li>
           <% if @logged_in %>
             <li class="navbar-menu-item" id="account-navbar-menu-item">
@@ -75,9 +77,12 @@
         <ul class="navbar-list">
           <% if not @logged_in %>
             <li class="navbar-list-item" id="authentication-navbar-list-item">
-              <%= image_tag "account-icon.png", :class => "navbar-list-item-image" %>
-              <input class="email-input-text" type="text" placeholder="email"> </input>
-              <input class="password-input" type="password" placeholder="password"> </input>
+              <%= form_for(@user) do |form| %>
+                <%= image_tag "account-icon.png", :class => "navbar-list-item-image" %>
+                <%= form.email_field :email, :class => "email-input-text", :placeholder => "email" %>
+                <%= form.password_field :password, :class => "password-input", :placeholder => "password" %>
+                <%= form.submit "Login", :class => "authentication-button" %>
+              <% end %>
             </li>
           <% else %>
             <li class="navbar-list-item" id="account-navbar-list-item">
@@ -101,7 +106,28 @@
         </li>
       </ul>
       <!-- Footer End !-->
-        
+      
+      <% if flash[:error] or flash[:success] %>
+      <!-- Overlay Start !-->
+      <div class="overlay">
+        <!-- Authentication Alerts Start --!>
+        <% flash.each do |type, messages| %>
+          <div class="alert-<%= type %>">
+            <button class="alert-button-close" type="submit">&times;</button>
+            <ul>
+              <% messages.each do |message| %>
+                <li>
+                  <%= message %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <!-- Authentication Alerts End --!>
+      </div>
+      <!-- Overlay End !-->
+      <% end %>
+      
     </div>
     <!-- Container End !-->
   </body>
