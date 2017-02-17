@@ -1,0 +1,53 @@
+<div class="navbar-menu">
+    <ul class="navbar-menu-list">
+        <li class="navbar-menu-item" id="home-navbar-menu-item">
+            <a id="home-navbar-menu-item-link" href="home">
+              <%= image_tag "logo-small.png"%>
+            </a>
+        </li>
+        <% if @logged_in %>
+            <li class="navbar-menu-item" id="account-navbar-menu-item">
+                <a id="account-navbar-menu-item-link" href="account">
+                    <%= image_tag "account-icon.png", :class => "navbar-menu-item-image" %>
+                    Account
+                </a>
+            </li>
+        <% end %>
+        <li class="navbar-menu-item">
+            <a id="clients-navbar-menu-item-link" href="clients">
+              <%= image_tag "clients-icon.png", :class => "navbar-menu-item-image" %>
+              Clients
+            </a>
+        </li>
+        <li class="navbar-menu-item">
+            <a id="partners-navbar-menu-item-link" href="partners">
+              <%= image_tag "partners-icon.png", :class => "navbar-menu-item-image" %>
+              Partners
+            </a>
+        </li>
+        <li class="navbar-menu-item">
+            <a id="portfolio-navbar-menu-item-link" href="portfolio">
+              <%= image_tag "portfolio-icon.png", :class => "navbar-menu-item-image" %>
+              Portfolio
+        </a>
+        </li>
+        <li class="navbar-menu-item">
+            <a id="inquiry-navbar-menu-item-link" href="inquiry">
+              <%= image_tag "inquiry-icon.png", :class => "navbar-menu-item-image" %>
+              Inquiry
+            </a>
+        </li>
+        <li class="navbar-menu-item">
+            <a id="reviews-navbar-menu-item-link" href="reviews">
+              <%= image_tag "reviews-icon.png", :class => "navbar-menu-item-image" %>
+              Reviews
+            </a>
+        </li>
+        <li class="navbar-menu-item">
+            <a id="shop-navbar-menu-item-link" href="shop">
+              <%= image_tag "shop-icon.png", :class => "navbar-menu-item-image" %>
+              Shop
+        </a>
+        </li>
+    </ul>
+</div>

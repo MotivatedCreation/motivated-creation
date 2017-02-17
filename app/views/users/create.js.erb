@@ -1,0 +1,11 @@
+function openAlert()
+{
+    $(".alert").show();
+    $(".alert").animate({right: '20'}, 1000);
+}
+
+$(document).ready(function()
+{
+    var alert = $("<%= escape_javascript(render(:partial => './layouts/alert', :object => flash[:errors])) %>").appendTo('.container');
+    openAlert();
+});

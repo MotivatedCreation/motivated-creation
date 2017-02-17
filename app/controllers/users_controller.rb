@@ -37,10 +37,8 @@ class UsersController < ApplicationController
           flash[:success] = ""
         }
       else
-        format.html {
-          flash[:error] = @user.errors.full_messages 
-          redirect_to :back
-        }
+        format.html
+        format.js { flash[:error] = @user.errors.full_messages }
       end
     end
   end

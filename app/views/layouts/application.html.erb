@@ -11,59 +11,7 @@
   </head>
   <body>
     <!-- Navigationbar Menu Start -->
-      <div class="navbar-menu">
-        <ul class="navbar-menu-list">
-          <li class="navbar-menu-item" id="home-navbar-menu-item">
-            <a id="home-navbar-menu-item-link" href="home">
-              <%= image_tag "logo-small.png"%>
-            </a>
-          </li>
-          <% if @logged_in %>
-            <li class="navbar-menu-item" id="account-navbar-menu-item">
-              <a id="account-navbar-menu-item-link" href="account">
-                <%= image_tag "account-icon.png", :class => "navbar-menu-item-image" %>
-                Account
-              </a>
-            </li>
-          <% end %>
-          <li class="navbar-menu-item">
-            <a id="clients-navbar-menu-item-link" href="clients">
-              <%= image_tag "clients-icon.png", :class => "navbar-menu-item-image" %>
-              Clients
-            </a>
-          </li>
-          <li class="navbar-menu-item">
-            <a id="partners-navbar-menu-item-link" href="partners">
-              <%= image_tag "partners-icon.png", :class => "navbar-menu-item-image" %>
-              Partners
-            </a>
-          </li>
-          <li class="navbar-menu-item">
-            <a id="portfolio-navbar-menu-item-link" href="portfolio">
-              <%= image_tag "portfolio-icon.png", :class => "navbar-menu-item-image" %>
-              Portfolio
-            </a>
-          </li>
-          <li class="navbar-menu-item">
-            <a id="inquiry-navbar-menu-item-link" href="inquiry">
-              <%= image_tag "inquiry-icon.png", :class => "navbar-menu-item-image" %>
-              Inquiry
-            </a>
-          </li>
-          <li class="navbar-menu-item">
-            <a id="reviews-navbar-menu-item-link" href="reviews">
-              <%= image_tag "reviews-icon.png", :class => "navbar-menu-item-image" %>
-              Reviews
-            </a>
-          </li>
-          <li class="navbar-menu-item">
-            <a id="shop-navbar-menu-item-link" href="shop">
-              <%= image_tag "shop-icon.png", :class => "navbar-menu-item-image" %>
-              Shop
-            </a>
-          </li>
-      </ul>
-    </div>
+    <%= render partial: './layouts/navbar-menu' %>
     <!-- Navigationbar Menu End -->
       
     <!-- Container Start -->
@@ -73,88 +21,21 @@
       <%= yield %>
       <!-- Page Content End -->
       
+      <!-- Popover Start -->
+      <%= render partial: './layouts/authentication-popover' %>
+      <!-- Popover End -->
+      
       <!-- Navigationbar Start -->
-      <navbar class="navbar">
-        <ul class="navbar-list">
-          <% if not @logged_in %>
-            <li class="navbar-list-item" id="authentication-navbar-list-item">
-              <button class="navbar-list-item-button" id="authentication-navbar-list-item-button" href="javascript:void(0);" onclick="toggleAuthenticationPopover()"></button>
-            </li>
-          <% else %>
-            <li class="navbar-list-item" id="account-navbar-list-item">
-              <a href="account"> Welcome, User.</a>
-            </li>
-          <% end %>
-          <li class="navbar-list-item" id="menu-navbar-list-item">
-            <button class="navbar-list-item-button" id="menu-navbar-list-item-button" href="javascript:void(0);" onclick="toggleNavbarMenu()">&#9776;</a>
-          </li>
-        </ul>
-      </navbar>
+      <%= render partial: './layouts/navbar' %>
       <!-- Navigationbar End -->
       
       <!-- Footer Start -->
-      <ul class="footer">
-        <li class="footer-item">
-          <a href="contact">Contact</a>
-        </li>
-        <li class="footer-item">
-          Copyright © 2017 Motivated Creation, LLC. All rights reserved.
-        </li>
-      </ul>
+      <%= render partial: './layouts/footer' %>
       <!-- Footer End -->
       
-      <!-- Popover Start -->
-      <div class="popover" id="authentication-popover">
-        <%= form_for(@user) do |form| %>
-          <div class="popover-header">
-            <label>Login</label>
-          </div>
-          <div class="popover-content">
-            <%= form.email_field :email, :class => "email-input-text", :placeholder => "email" %>
-            <%= form.password_field :password, :class => "password-input", :placeholder => "password" %>
-          </div>
-          <div class="popover-footer">
-            <%= form.submit "Login", :class => "login-button" %>
-            <%= form.submit "Sign up", :class => "authentication-accessory-button" %>
-            <%= form.submit "Forgot Password?", :class => "authentication-accessory-button" %>
-          </div>
-        <% end %>
-      </div>
-      <!-- Popover End -->
-      
-      <% if flash[:error] or flash[:success] or flash[:warning] %>
-        <!-- Overlay Start -->
-        <div class="overlay">
-          <% flash.each do |type, messages| %>
-            <!-- Authentication Alerts Start -->
-            <div class="alert-<%= type %>">
-              <div class="alert-header">
-                <label class="alert-header-title">
-                  <% if flash[:error] or flash[:warning] %>
-                    <%= pluralize(messages.count, type) %>
-                  <% else %>
-                    <%= type %>
-                  <% end %>
-                </label>
-                <button class="alert-button-close" type="submit">&times;</button>
-              </div>
-              <div class="alert-content">
-                <ul>
-                  <% messages.each do |message| %>
-                    <li>
-                      <%= message %>
-                    </li>
-                  <% end %>
-                </ul>
-              </div>
-              <div class="alert-footer">
-              </div>
-            </div>
-            <!-- Authentication Alerts End -->
-          <% end %>
-        </div>
-        <!-- Overlay End -->
-      <% end %>
+      <!-- Overlay Start -->
+      <div class="overlay"></div>
+      <!-- Overlay End -->
       
     </div>
     <!-- Container End -->

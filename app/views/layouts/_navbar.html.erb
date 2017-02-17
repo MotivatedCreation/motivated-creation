@@ -1,0 +1,16 @@
+<navbar class="navbar">
+    <ul class="navbar-list">
+      <% if not @logged_in %>
+        <li class="navbar-list-item" id="authentication-navbar-list-item">
+          <button class="navbar-list-item-button" id="authentication-navbar-list-item-button" href="javascript:void(0);" onclick="toggleAuthenticationPopover()"></button>
+        </li>
+      <% else %>
+        <li class="navbar-list-item" id="account-navbar-list-item">
+          <a href="account"> Welcome, User.</a>
+        </li>
+      <% end %>
+      <li class="navbar-list-item" id="menu-navbar-list-item">
+        <button class="navbar-list-item-button" id="menu-navbar-list-item-button" href="javascript:void(0);" onclick="toggleNavbarMenu()">&#9776;</a>
+      </li>
+    </ul>
+</navbar>

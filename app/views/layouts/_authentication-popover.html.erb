@@ -1,0 +1,16 @@
+<div class="popover" id="authentication-popover">
+    <%= form_for(@user, remote: true) do |form| %>
+        <div class="popover-header">
+            <label>Login</label>
+        </div>
+        <div class="popover-content">
+            <%= form.text_field :email, :class => "email-input-text", :placeholder => "email" %>
+            <%= form.password_field :password, :class => "password-input", :placeholder => "password" %>
+        </div>
+        <div class="popover-footer">
+            <%= form.submit "Login", :class => "login-button" %>
+            <%= form.submit "Sign up", :class => "authentication-accessory-button" %>
+            <%= form.submit "Forgot Password?", :class => "authentication-accessory-button" %>
+        </div>
+    <% end %>
+</div>

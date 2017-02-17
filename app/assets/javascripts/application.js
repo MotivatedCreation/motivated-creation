@@ -18,16 +18,27 @@
 var showNavbarMenu = false
 var showAuthenticationPopover = false
 
-$(document).on('click', '.alert-button-close', function () {
-    $('.overlay').hide();
-});
+function show(element) {
+    $(element).show();
+}
+
+function hide(element) {
+    $(element).hide();
+}
+
+function closeAlert()
+{
+    $(".alert").fadeOut(function() {
+        $(".alert").remove();
+    });
+}
 
 function openAuthenticationPopover() {
-    $('#authentication-popover').animate({height: '220px'});
+    $('#authentication-popover').animate({top: '62px'}, 500);
 }
 
 function closeAuthenticationPopover() {
-    $('#authentication-popover').animate({height: '0'});
+    $('#authentication-popover').animate({top: '-240px'}, 500);
 }
 
 function openNavbarMenu() {
