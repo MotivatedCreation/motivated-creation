@@ -774,7 +774,7 @@ html
     
     .navbar
     {
-        height: ($navbarHeight * 2);
+        height: ($navbarHeight * 1.5);
         
         .navbar-list-item
         {
@@ -785,11 +785,11 @@ html
             }
             
             #authentication-navbar-list-item-button {
-                background-size: 70px;
+                background-size: 45px;
             }
             
             #menu-navbar-list-item-button {
-                font-size: 70px;
+                font-size: 45px;
             }
         }
     }
