@@ -774,22 +774,22 @@ html
     
     .navbar
     {
-        height: ($navbarHeight * 1.5);
+        height: ($navbarHeight * 1.2);
         
         .navbar-list-item
         {
             .navbar-list-item-accessory
             {
-                width: 80px;
-                height: 80px;
+                width: 40px;
+                height: 40px;
             }
             
             #authentication-navbar-list-item-button {
-                background-size: 45px;
+                background-size: 35px;
             }
             
             #menu-navbar-list-item-button {
-                font-size: 45px;
+                font-size: 35px;
             }
         }
     }
