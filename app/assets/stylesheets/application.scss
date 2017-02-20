@@ -26,8 +26,41 @@ $footerHeight: $navbarHeight;
 
 /********* Mixins Start *********/
 
+@mixin display($display)
+{
+    display: $display;
+    -webkit-display: $display;
+    -moz-display: $display;
+    -ms-display: $display;
+}
+
+@mixin align-items($align)
+{
+    align-items: $align;
+    -webkit-align-items: $align;
+    -moz-align-items: $align;
+    -ms-align-items: $align;
+}
+
+@mixin flex-direction($direction)
+{
+    flex-direction: $direction;
+    -webkit-flex-direction: $direction;
+    -moz-flex-direction: $direction;
+    -ms-flex-direction: $direction;
+}
+
+@mixin justify-content($justify)
+{
+    justify-content: $justify;
+    -webkit-justify-content: $justify;
+    -moz-justify-content: $justify;
+    -ms-justify-content: $justify;
+}
+
 @mixin border-radius($radius)
 {
+    border-radius: $radius;
     -webkit-border-radius: $radius;
     -moz-border-radius: $radius;
     -ms-border-radius: $radius;
@@ -36,6 +69,7 @@ $footerHeight: $navbarHeight;
 
 @mixin animation($keyframes, $duration, $steps)
 {
+    animation: $keyframes $duration $steps;
     -webkit-animation: $keyframes $duration $steps;
     -moz-animation: $keyframes $duration $steps;
     -ms-animation: $keyframes $duration $steps;
@@ -47,6 +81,12 @@ $footerHeight: $navbarHeight;
 
 /********* Main Start *********/
 
+.layout
+{
+    margin: 0;
+    padding: 0;
+}
+
 html
 {
     width: 100%;
@@ -55,8 +95,8 @@ html
     
     body
     {
-        margin: 0;
-        padding: 0;
+        @extend .layout;
+        
         width: 100%;
         height: 100%;
     }
@@ -69,8 +109,8 @@ html
 
 .container
 {
-    margin: 0;
-    padding: 0;
+    @extend .layout;
+    
     width: 100%;
     height: 100%;
     position: fixed;
@@ -80,20 +120,20 @@ html
     
     .content-container
     {
-        margin: 0;
+        @extend .layout;
+        
         width: 100%;
         height: 100%;
         overflow: auto;
-        text-align: center;
         position: relative;
     }
 }
 
 .overlay
 {
+    @extend .layout;
+    
     top: 0;
-    margin: 0;
-    padding: 0;
     width: 100%;
     height: 100%;
     display: none;
@@ -108,8 +148,8 @@ html
 
 .alert
 {
-    margin: 0;
-    padding: 0;
+    @extend .layout;
+    
     width: 600px;
     height: auto;
     color: white;
@@ -197,8 +237,8 @@ html
 
 .popover
 {
-    margin: 0;
-    padding: 0;
+    @extend .layout;
+    
     overflow: hidden;
     position: absolute;
     background-color: white;
@@ -312,27 +352,30 @@ html
 
 .navbar
 {
+    @extend .layout;
+    
     top: 0;
-    margin: 0;
-    padding: 0;
     width: 100%;
-    height: $navbarHeight;
-    text-align: right;
     position: absolute;
+    height: $navbarHeight;
     border-bottom: 1px solid rgba(222, 222, 222, 0.9);
     background-color: rgba(252, 252, 252, 0.9);
     
     .navbar-list
     {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
+        @extend .layout;
+    
+        height: 100%;
         position: relative;
+        list-style-type: none;
+        
+        @include display(flex);
+        @include align-items(center);
+        @include flex-direction(row-reverse);
+        @include justify-content(space-between);
         
         .navbar-list-item
         {
-            top: 12px;
-            position: relative;
             padding: 0 20px 0 0;
             display: inline-block;
             
@@ -349,8 +392,8 @@ html
             
             .navbar-list-item-accessory
             {
-                margin: 0;
-                padding: 0;
+                @extend .layout;
+    
                 width: 40px;
                 height: 40px;
             }
@@ -395,9 +438,9 @@ html
 
 .navbar-menu
 {
+    @extend .layout;
+    
     left: 0;
-    margin: 0;
-    padding: 0;
     height: 100%;
     width: 200px;
     overflow: auto;
@@ -406,8 +449,8 @@ html
     
     .navbar-menu-list
     {
-        margin: 0;
-        padding: 0;
+        @extend .layout;
+    
         list-style-type: none;
         
         .navbar-menu-item
@@ -458,14 +501,14 @@ html
 
 .footer
 {
+    @extend .layout;
+    
     left: 0;
     bottom: 0;
-    margin: 0;
-    padding: 0;
     width: 100%;
-    height: $footerHeight;
     position: absolute;
     list-style-type: none;
+    height: $footerHeight;
     background-color: rgba(240, 240, 240, 0.9);
     
     .footer-item
@@ -514,8 +557,9 @@ html
     height: 35%;
     display: flex;
     position: relative;
-    align-items: center;
-    justify-content: center;
+    
+    @include align-items(center);
+    @include justify-content(center);
     
     .title-logo
     {
@@ -526,8 +570,8 @@ html
     
     .title-header
     {
-        margin: 0;
-        padding: 0;
+        @extend .layout;
+    
         color: black;
         font-size: 100px;
         font-weight: 300;
@@ -549,8 +593,8 @@ html
 
 .collection
 {
-    margin: 0;
-    padding: 0;
+    @extend .layout;
+    
     width: 100%;
     padding: 20px 0 ($footerHeight + 20px) 0;
     
@@ -562,14 +606,14 @@ html
         
         .collection-cell-header
         {
-            margin: 0;
-            padding: 0;
+            @extend .layout;
+    
             width: 100%;
             
             .collection-cell-header-title
             {
-                margin: 0;
-                padding: 0;
+                @extend .layout;
+    
                 width: 100%;
             }
         }
@@ -580,17 +624,15 @@ html
             width: 100%;
             padding: 10px 0 20px 0;
             
-            .collection-cell-body-paragraph
-            {
-                margin: 0;
-                padding: 0;
+            .collection-cell-body-paragraph {
+                @extend .layout;
             }
         }
 
         .collection-cell-footer
         {
-            margin: 0;
-            padding: 0;
+            @extend .layout;
+    
             width: 100%;
         }
 
@@ -602,21 +644,20 @@ html
 
         .collection-cell-image-container
         {
-            margin: 0;
-            padding: 0;
+            @extend .layout;
+    
             width: 230px;
             height: 180px;
             display: flex;
             border-radius: 5px;
-            align-items: center;
             background-color: white;
-            justify-content: center;
             box-shadow: 0px 0px 2px gray;
             
-            .collection-cell-image
-            {
-                margin: 0;
-                padding: 0;
+            @include align-items(center);
+            @include justify-content(center);
+            
+            .collection-cell-image {
+                @extend .layout;
             }
         }
         
@@ -629,7 +670,6 @@ html
 #menu-navbar-list-item
 {
     margin: 0;
-    float: left;
     padding: 0 0 0 20px;
 }
 
@@ -639,6 +679,8 @@ html
 
 #authentication-navbar-list-item-button
 {
+    top: 3px;
+    position: relative;
     background: image-url("account-icon.png") no-repeat center center;
     background-size: 30px;
 }
@@ -724,6 +766,55 @@ html
 
 @media all and (max-width: 414px)
 {
+    #authentication-popover
+    {
+        left: 0;
+        width: calc(100%);
+    }
+    
+    .navbar
+    {
+        height: ($navbarHeight * 1.5);
+        
+        .navbar-list-item
+        {
+            .navbar-list-item-accessory
+            {
+                width: 80px;
+                height: 80px;
+            }
+            
+            #authentication-navbar-list-item-button {
+                background-size: 45px;
+            }
+            
+            #menu-navbar-list-item-button {
+                font-size: 40px;
+            }
+        }
+    }
+    
+    .navbar-menu
+    {
+        .navbar-menu-list
+        {
+            .navbar-menu-item
+            {
+                height: 68px;
+                
+                a
+                {
+                    font-size: 20px;
+                }
+            
+                .navbar-menu-item-image {
+                    width: 45px;
+                    height: 45px;
+                }
+            }
+        }
+    }
+    
     .title-content-container
     {
         .title-logo {
