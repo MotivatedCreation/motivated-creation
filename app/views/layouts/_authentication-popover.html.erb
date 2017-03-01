@@ -1,16 +1,16 @@
-<div class="popover" id="authentication-popover">
-    <%= form_for(@user, remote: true) do |form| %>
-        <div class="popover-header">
-            <label>Login</label>
-        </div>
-        <div class="popover-content">
-            <%= form.text_field :email, :class => "email-input-text", :placeholder => "email" %>
-            <%= form.password_field :password, :class => "password-input", :placeholder => "password" %>
-        </div>
-        <div class="popover-footer">
-            <%= form.submit "Login", :class => "login-button" %>
-            <%= form.submit "Sign up", :class => "authentication-accessory-button" %>
-            <%= form.submit "Forgot Password?", :class => "authentication-accessory-button" %>
-        </div>
+<div class="modal" id="authentication-popover">
+    <%= form_tag(authenticate_path, remote: true) do %>
+    <div class="modal-header">
+        <label>Login</label>
+    </div>
+    <div class="modal-content">
+        <%= text_field_tag 'email', nil, class: 'email-input-text', placeholder: 'email' %>
+        <%= password_field_tag 'password', nil, class: 'password-input', placeholder: 'password' %>
+    </div>
+    <div class="modal-footer">
+        <%= submit_tag 'Login', name: 'login', class: 'login-button' %>
+        <%= submit_tag 'Sign up', name: 'signup', class: 'authentication-accessory-button' %>
+        <%= submit_tag 'Forgot Password?', name: 'forgot_password', class: 'authentication-accessory-button' %>
+    </div>
     <% end %>
 </div>

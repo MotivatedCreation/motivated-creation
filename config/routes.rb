@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   match 'inquiry', to: 'inquiry#inquiry', via: [:get]
   match 'shop', to: 'shop#shop', via: [:get]
   
+  match 'signup', to: 'sessions#signup', via: [:post]
+  match 'authenticate', to: 'sessions#authenticate', via: [:post]
+  match 'forgot_password', to: 'sessions#forgot_password', via: [:post]
+  
   resources :users
   
   # The priority is based upon order of creation: first created -> highest priority.
