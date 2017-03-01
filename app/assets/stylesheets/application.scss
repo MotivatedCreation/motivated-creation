@@ -109,7 +109,7 @@ html
         height: 100%;
         
         form {
-            display: inline-block;
+            @include display(inline-block)
         }
     }
 }
@@ -148,9 +148,10 @@ html
     top: 0;
     width: 100%;
     height: 100%;
-    display: none;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.7);
+    
+    @include display(none);
 }
 
 /********* Container End *********/
@@ -188,7 +189,8 @@ html
             margin: 0;
             font-size: 18px;
             padding: 10px 0 0 5px;
-            display: inline-block;
+            
+            @include display(inline-block);
         }
         
         .alert-button-close
@@ -245,7 +247,7 @@ html
 /********* Alerts End *********/
 
 
-/********* Login Popover Start *********/
+/********* Modal Start *********/
 
 .modal
 {
@@ -255,8 +257,19 @@ html
     position: absolute;
     background-color: white;
     
-    .modal-header {
+    .modal-header
+    {
         padding: 10px;
+        
+        .modal-button-close
+        {
+            border: none;
+            color: black;
+            float: right;
+            font-size: 25px;
+            cursor: pointer;
+            background: none;
+        }
     }
     
     .modal-content {
@@ -266,26 +279,154 @@ html
     .modal-footer {
         padding: 10px;
     }
-    
+        
     @include border-radius($borderRadius);
 }
 
+.input-text
+{
+    padding: 8px;
+    border: none;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid rgb(230, 230, 230);
+
+    @include display(block);
+    @include border-radius($borderRadius);
+}
+    
 #signup-modal
 {
     width: 300px;
-    height: 300px;
-    top: $navbarHeight;
+    left: calc(50% - 140px);
     background-color: white;
+    top: ($navbarHeight + 20px);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    
+    .modal-content
+    {
+        width: 280px;
+        
+        .input-text {
+            width: calc(100% - 20px);
+        }
+        
+        #name-input-text
+        {
+            @extend .input-text;
+            
+            margin: 0 0 10px 0;
+        }
+        
+        #email-input-text
+        {
+            @extend .input-text;
+            
+            margin: 0 0 10px 0;
+        }
+
+        #password-input
+        {
+            @extend .input-text;
+            
+            margin: 0 0 10px 0;
+        }
+        
+        #password-confirmation-input {
+            @extend .input-text;
+        }
+    }
+
+    .modal-footer
+    {
+        text-align: center;
+        
+        .signup-button
+        {
+            width: 100%;
+            border: none;
+            color: white;
+            margin: 0 auto;
+            font-size: 12px;
+            font-family: 'Open Sans', sans-serif;
+            padding: 9px 18px 9px 18px;
+            background: rgb(0, 194, 201);
+    
+            @include display(block);
+            @include border-radius($borderRadius);
+        }
+
+        .signup-button:hover
+        {
+            cursor: pointer;
+            background: rgb(0, 184, 191);
+            box-shadow: inset 0 0 10px 0 rgba(30, 30, 30, 0.2);
+        }
+    
+        .signup-button:active
+        {
+            cursor: pointer;
+            background: rgb(0, 164, 171);
+        }
+    }
 }
 
 #forgot-password-modal
 {
     width: 300px;
-    height: 300px;
-    top: $navbarHeight;
+    left: calc(50% - 140px);
     background-color: white;
+    top: ($navbarHeight + 20px);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    
+    .modal-content
+    {
+        width: 280px;
+        
+        .input-text {
+            width: calc(100% - 20px);
+        }
+        
+        #email-input-text
+        {
+            @extend .input-text;
+            
+            margin: 0 0 10px 0;
+        }
+    }
+    
+    .modal-footer
+    {
+        text-align: center;
+        
+        .submit-button
+        {
+            width: 100%;
+            border: none;
+            color: white;
+            margin: 0 auto;
+            font-size: 12px;
+            font-family: 'Open Sans', sans-serif;
+            padding: 9px 18px 9px 18px;
+            background: rgb(0, 194, 201);
+    
+            @include display(block);
+            @include border-radius($borderRadius);
+        }
+
+        .submit-button:hover
+        {
+            cursor: pointer;
+            background: rgb(0, 184, 191);
+            box-shadow: inset 0 0 10px 0 rgba(30, 30, 30, 0.2);
+        }
+    
+        .submit-button:active
+        {
+            cursor: pointer;
+            background: rgb(0, 164, 171);
+        }
+    }
 }
 
 #authentication-popover
@@ -301,27 +442,27 @@ html
         {
             padding: 8px;
             border: none;
-            display: block;
             font-size: 12px;
             margin: 0 0 10px 0;
             width: calc(100% - 20px);
             font-family: 'Open Sans', sans-serif;
             border: 1px solid rgb(230, 230, 230);
     
-            @include border-radius($borderRadius)
+            @include display(block);
+            @include border-radius($borderRadius);
         }
 
         .password-input
         {
             margin: 0;
             padding: 8px;
-            display: block;
             font-size: 12px;
             width: calc(100% - 20px);
             font-family: 'Open Sans', sans-serif;
             border: 1px solid rgb(230, 230, 230);
     
-            @include border-radius($borderRadius)
+            @include display(block);
+            @include border-radius($borderRadius);
         }
     }
 
@@ -335,13 +476,13 @@ html
             border: none;
             color: white;
             margin: 0 auto;
-            display: block;
             font-size: 12px;
             font-family: 'Open Sans', sans-serif;
             padding: 9px 18px 9px 18px;
             background: rgb(0, 194, 201);
     
-            @include border-radius($borderRadius)
+            @include display(block);
+            @include border-radius($borderRadius);
         }
 
         .login-button:hover
@@ -375,7 +516,7 @@ html
     }
 }
 
-/********* Login Popover End *********/
+/********* Modal End *********/
 
 
 /********* Navbar Start *********/
@@ -407,7 +548,8 @@ html
         .navbar-list-item
         {
             padding: 0 20px 0 0;
-            display: inline-block;
+            
+            @include display(inline-block);
             
             a
             {
@@ -490,9 +632,10 @@ html
             margin: 0;
             height: 48px;
             cursor: pointer;
-            display: inline-block;
             padding: 18px 0 0 20px;
             width: calc(100% - 20px);
+            
+            @include display(inline-block);
             
             a
             {
@@ -553,7 +696,8 @@ html
         font-weight: 200;
         position: relative;
         padding: 0 23px 0 0;
-        display: inline-block;
+        
+        @include display(inline-block);
         
         a
         {
@@ -590,9 +734,9 @@ html
     padding: ($navbarHeight + 10px) 0 0 0;
     width: 100%;
     height: 35%;
-    display: flex;
     position: relative;
     
+    @include display(flex);
     @include align-items(center);
     @include justify-content(center);
     
@@ -637,7 +781,8 @@ html
     {
         margin: 10px;
         padding: 10px;
-        display: inline-block;
+        
+        @include display(inline-block);
         
         .collection-cell-header
         {
@@ -683,11 +828,11 @@ html
     
             width: 230px;
             height: 180px;
-            display: flex;
             border-radius: 5px;
             background-color: white;
             box-shadow: 0px 0px 2px gray;
             
+            @include display(flex);
             @include align-items(center);
             @include justify-content(center);
             

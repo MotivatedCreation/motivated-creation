@@ -1,17 +1,17 @@
 <div class="modal" id="signup-modal">
     <%= form_tag(signup_path, remote: true) do %>
     <div class="modal-header">
-        <label>Sign Up</label>
-        <button>&times;</button>
+        <label>Sign up</label>
+        <button class="modal-button-close">&times;</button>
     </div>
     <div class="modal-content">
-        <%= text_field_tag 'name', nil, class: 'name-input-text', placeholder: 'name' %>
-        <%= text_field_tag 'email', nil, class: 'email-input-text', placeholder: 'email' %>
-        <%= password_field_tag 'password', nil, class: 'password-input', placeholder: 'password' %>
-        <%= password_field_tag 'password-confirmation', nil, class: 'password-confirmation-input', placeholder: 'confirm password' %>
+        <%= text_field_tag 'name', nil, id: 'name-input-text', placeholder: 'name' %>
+        <%= text_field_tag 'email', nil, id: 'email-input-text', placeholder: 'email' %>
+        <%= password_field_tag 'password', nil, id: 'password-input', placeholder: 'password' %>
+        <%= password_field_tag 'password-confirmation', nil, id: 'password-confirmation-input', placeholder: 'confirm password' %>
     </div>
     <div class="modal-footer">
-        <%= submit_tag 'Sign up', name: 'signup', class: 'authentication-accessory-button' %>
+        <%= submit_tag 'Sign up', name: 'signup', class: 'signup-button' %>
     </div>
     <% end %>
 </div>
