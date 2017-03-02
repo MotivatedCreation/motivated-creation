@@ -57,7 +57,7 @@ class SessionsController < ApplicationController
                 if @user
                     flash[:success] = ["Recovery email successfully sent!"]
                 else
-                    flash[:error] = ["Invalid email or password"]
+                    flash[:error] = ["Invalid email"]
                 end
                 render 'login'
             }
