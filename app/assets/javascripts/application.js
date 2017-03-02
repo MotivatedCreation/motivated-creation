@@ -19,17 +19,10 @@
 /* global toggleAuthenticationPopover */
 
 var showNavbarMenu = false
-var showingAuthenticationPopover = false;
 
 $(document).ready(function()
 {
-    $("#authentication-popover-button-close").on("click", function() {
-        toggleAuthenticationPopover();
-    });
     
-    $("#authentication-navbar-list-item-button").on("click", function() {
-        toggleAuthenticationPopover();
-    });
 });
 
 function show(element) {
@@ -65,17 +58,5 @@ function toggleNavbarMenu()
     }
     else {
         closeNavbarMenu();
-    }
-}
-
-function toggleAuthenticationPopover()
-{
-    showingAuthenticationPopover = !showingAuthenticationPopover;
-    
-    if (showingAuthenticationPopover) {
-        openModal('#authentication-popover', '62px');
-    }
-    else {
-        closeModal('#authentication-popover', '-235px');
     }
 }

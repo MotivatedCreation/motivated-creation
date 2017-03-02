@@ -1,44 +1,40 @@
 class SessionsController < ApplicationController
     
-    attr_accessor :showingSignupModal
-    attr_accessor :showingForgotPasswordModal
-    attr_accessor :showingAuthenticationPopover
-    
-    def initialize
-        super
-        self.showingSignupModal = false
-        self.showingForgotPasswordModal = false
-        self.showingAuthenticationPopover = false
-    end
-    
     def authenticate
         if params[:login]
             self.login()
-        elsif params[:signup]
+        elsif params[:display_login]
+            self.display_login()
+        elsif params[:display_signup]
             self.display_signup()
-        elsif params[:forgot_password]
+        elsif params[:display_forgot_password]
             self.display_forgot_password()
         end
     end
     
-    def display_signup
-        self.showingSignupModal = !self.showingSignupModal
-        
+    def display_login
         respond_to do |format|
             
             format.html
-            format.js { render 'signup', locals: { shouldToggle: self.showingSignupModal } }
+            format.js { render('login') }
+            
+        end  
+    end
+    
+    def display_signup
+        respond_to do |format|
+            
+            format.html
+            format.js { render('signup') }
             
         end
     end
     
     def display_forgot_password
-        self.showingForgotPasswordModal = !self.showingForgotPasswordModal
-        
         respond_to do |format|
             
             format.html
-            format.js { render('forgot-password', locals: { shouldToggle: self.showingForgotPasswordModal }) }
+            format.js { render('forgot-password') }
             
         end
     end
@@ -54,12 +50,6 @@ class SessionsController < ApplicationController
                     flash.now[:error] = ["Invalid email or password"]
                     render('./layouts/alert')
                 }
-                
-            else
-                self.showingAuthenticationPopover = !self.showingAuthenticationPopover
-                format.js { render('login', locals: { shouldToggle: self.showingAuthenticationPopover }) }
-                
-                format.html { redirect_to :back }
             end
             
         end

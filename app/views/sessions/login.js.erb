@@ -1,8 +1,27 @@
 /* global document */
-/* global openAlert */
-/* global toggleAuthenticationPopover() */
+/* global openModal */
+/* global closeModal */
+
+var showingAuthenticationPopover = false
 
 $(document).ready(function()
 {
-    toggleAuthenticationPopover();
+    showingAuthenticationPopover = !($('#authentication-popover').position().top == 62 ? true : false);
+    toggleAuthenticationPopover(showingAuthenticationPopover);
+    
+    $("#authentication-popover-button-close").on("click", function()
+    {
+        showingAuthenticationPopover = false;
+        toggleAuthenticationPopover(showingAuthenticationPopover);
+    });
 });
+
+function toggleAuthenticationPopover(shouldToggle)
+{
+    if (shouldToggle) {
+        openModal('#authentication-popover', '62px');
+    }
+    else {
+        closeModal('#authentication-popover', '-235px');
+    }
+}

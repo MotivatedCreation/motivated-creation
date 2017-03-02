@@ -1,26 +1,30 @@
 /* global document */
+/* global openModal */
+/* global closeModal */
+/* global toggleAuthenticationPopover */
 
-var showingSignupModal = <%= shouldToggle %>;
+var showingSignupModal = false
 
 $(document).ready(function()
 {
-    toggleSignupModal();
+    showingSignupModal = !($('#signup-modal').position().top == 62 ? true : false);
+    toggleSignupModal(showingSignupModal);
     
-    $("#signup-modal-button-close").on("click", function() {
-        toggleSignupModal();
+    $("#signup-modal-button-close").on("click", function()
+    {
+        showingSignupModal = false;
+        toggleSignupModal(showingSignupModal);
     });
 });
 
-function toggleSignupModal()
+function toggleSignupModal(shouldToggle)
 {
-    if (showingSignupModal) {
+    if (shouldToggle) {
         openModal('#signup-modal', '62px');
     }
     else {
         closeModal('#signup-modal', '-305px');
     }
     
-    toggleAuthenticationPopover();
-    
-    showingSignupModal = !showingSignupModal;
+    toggleAuthenticationPopover(!shouldToggle);
 }
