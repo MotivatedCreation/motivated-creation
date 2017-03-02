@@ -32,14 +32,13 @@ class UsersController < ApplicationController
       format.html
       
       if @user.save
-        format.js { flash[:success] = ["Success!"] }
+        format.js { flash.now[:success] = ["Success!"] }
       else
-        format.js { flash[:error] = @user.errors.full_messages }
+        format.js { flash.now[:error] = @user.errors.full_messages }
       end
       
     end
     
-    flash = nil
   end
 
   # PATCH/PUT /users/1
@@ -75,6 +74,6 @@ class UsersController < ApplicationController
   
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).fetch(:user, {})
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 end

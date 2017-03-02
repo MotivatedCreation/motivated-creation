@@ -1,7 +1,8 @@
 /* global document */
+/* global openAlert */
+/* global toggleAuthenticationPopover() */
 
 $(document).ready(function()
 {
-    var alert = $("<%= escape_javascript(render(:partial => './layouts/alert', :object => flash[:error])) %>").appendTo('.container');
-    openAlert();
+    toggleAuthenticationPopover();
 });

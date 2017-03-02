@@ -15,12 +15,19 @@
 //= require turbolinks
 //= require_tree .
 
+/* global document */
+/* global toggleAuthenticationPopover */
+
 var showNavbarMenu = false
-var showAuthenticationPopover = false
+var showingAuthenticationPopover = false;
 
 $(document).ready(function()
 {
     $("#authentication-popover-button-close").on("click", function() {
+        toggleAuthenticationPopover();
+    });
+    
+    $("#authentication-navbar-list-item-button").on("click", function() {
         toggleAuthenticationPopover();
     });
 });
@@ -31,19 +38,6 @@ function show(element) {
 
 function hide(element) {
     $(element).hide();
-}
-
-function closeAlert()
-{
-    $(".alert").fadeOut(function() {
-        $(".alert").remove();
-    });
-}
-
-function openAlert()
-{
-    $(".alert").show();
-    $(".alert").animate({right: '20'}, 500);
 }
 
 function openModal(modal, fromTop) {
@@ -76,9 +70,9 @@ function toggleNavbarMenu()
 
 function toggleAuthenticationPopover()
 {
-    showAuthenticationPopover = !showAuthenticationPopover;
+    showingAuthenticationPopover = !showingAuthenticationPopover;
     
-    if (showAuthenticationPopover) {
+    if (showingAuthenticationPopover) {
         openModal('#authentication-popover', '62px');
     }
     else {

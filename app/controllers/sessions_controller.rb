@@ -1,5 +1,16 @@
 class SessionsController < ApplicationController
     
+    attr_accessor :showingSignupModal
+    attr_accessor :showingForgotPasswordModal
+    attr_accessor :showingAuthenticationPopover
+    
+    def initialize
+        super
+        self.showingSignupModal = false
+        self.showingForgotPasswordModal = false
+        self.showingAuthenticationPopover = false
+    end
+    
     def authenticate
         if params[:login]
             self.login()
@@ -11,40 +22,48 @@ class SessionsController < ApplicationController
     end
     
     def display_signup
+        self.showingSignupModal = !self.showingSignupModal
+        
         respond_to do |format|
             
             format.html
-            format.js { render 'signup' }
+            format.js { render 'signup', locals: { shouldToggle: self.showingSignupModal } }
             
         end
     end
     
     def display_forgot_password
+        self.showingForgotPasswordModal = !self.showingForgotPasswordModal
+        
         respond_to do |format|
             
             format.html
-            format.js { render 'forgot-password' }
+            format.js { render('forgot-password', locals: { shouldToggle: self.showingForgotPasswordModal }) }
             
         end
     end
     
     def login
-        @user = User.find_by(email: params[:email], password: params[:password])
+        @user = User.find_by(email: params[:email].downcase)
 
         respond_to do |format|
             
-            format.html
-            
-            unless @user
+            if @user.nil? or not @user.authenticate(params[:password])
+                format.html
                 format.js {
-                    flash[:error] = ["Invalid email or password"]
-                    render 'login'
+                    flash.now[:error] = ["Invalid email or password"]
+                    render('./layouts/alert')
                 }
+                
+            else
+                self.showingAuthenticationPopover = !self.showingAuthenticationPopover
+                format.js { render('login', locals: { shouldToggle: self.showingAuthenticationPopover }) }
+                
+                format.html { redirect_to :back }
             end
             
         end
         
-        flash = nil
     end
     
     def forgot_password
@@ -55,22 +74,21 @@ class SessionsController < ApplicationController
             format.html
             format.js {
                 if @user
-                    flash[:success] = ["Recovery email successfully sent!"]
+                    flash.now[:success] = ["Recovery email successfully sent!"]
                 else
-                    flash[:error] = ["Invalid email"]
+                    flash.now[:error] = ["Invalid email"]
                 end
-                render 'login'
+                render('./layouts/alert')
             }
             
         end
         
-        flash = nil
     end
     
     private
     
     def user_params
-      params.require(:user).fetch(:user, {})
+      params.require(:user).permit(:email, :password)
     end
     
 end

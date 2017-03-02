@@ -1,6 +1,6 @@
 /* global document */
 
-var showSignupModal = false
+var showingSignupModal = <%= shouldToggle %>;
 
 $(document).ready(function()
 {
@@ -13,10 +13,7 @@ $(document).ready(function()
 
 function toggleSignupModal()
 {
-    showSignupModal = !showSignupModal;
-    
-    if (showSignupModal)
-    {
+    if (showingSignupModal) {
         openModal('#signup-modal', '62px');
     }
     else {
@@ -24,4 +21,6 @@ function toggleSignupModal()
     }
     
     toggleAuthenticationPopover();
+    
+    showingSignupModal = !showingSignupModal;
 }
