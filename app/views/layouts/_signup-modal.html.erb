@@ -1,14 +1,14 @@
 <div class="modal" id="signup-modal">
     <div class="modal-header">
         <label>Sign up</label>
-        <button class="modal-button-close" onclick="toggleSignupModal()">&times;</button>
+        <button class="modal-button-close" id="signup-modal-button-close">&times;</button>
     </div>
-    <%= form_tag(signup_path, remote: true) do %>
+    <%= form_for(User.new, remote: true) do |form| %>
     <div class="modal-content">
-        <%= text_field_tag 'name', nil, id: 'name-input-text', placeholder: 'name' %>
-        <%= text_field_tag 'email', nil, id: 'email-input-text', placeholder: 'email' %>
-        <%= password_field_tag 'password', nil, id: 'password-input', placeholder: 'password' %>
-        <%= password_field_tag 'password-confirmation', nil, id: 'password-confirmation-input', placeholder: 'confirm password' %>
+        <%= form.text_field :name, id: 'name-input-text', placeholder: 'name' %>
+        <%= form.text_field :email, id: 'email-input-text', placeholder: 'email' %>
+        <%= form.password_field :password, id: 'password-input', placeholder: 'password' %>
+        <%= form.password_field :password_confirmation, id: 'password-confirmation-input', placeholder: 'confirm password' %>
     </div>
     <div class="modal-footer">
         <%= submit_tag 'Sign up', name: 'signup', class: 'signup-button' %>

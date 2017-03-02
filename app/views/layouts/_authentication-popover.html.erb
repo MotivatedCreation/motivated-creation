@@ -1,7 +1,7 @@
 <div class="modal" id="authentication-popover">
     <div class="modal-header">
         <label class="modal-title">Login</label>
-        <button class="modal-button-close" onclick="toggleAuthenticationPopover()">&times;</button>
+        <button class="modal-button-close" id="authentication-popover-button-close">&times;</button>
     </div>
     <%= form_tag(authenticate_path, remote: true) do %>
     <div class="modal-content">

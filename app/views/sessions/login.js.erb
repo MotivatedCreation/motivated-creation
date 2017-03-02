@@ -5,9 +5,3 @@ $(document).ready(function()
     var alert = $("<%= escape_javascript(render(:partial => './layouts/alert', :object => flash[:error])) %>").appendTo('.container');
     openAlert();
 });
-
-function openAlert()
-{
-    $(".alert").show();
-    $(".alert").animate({right: '20'}, 500);
-}

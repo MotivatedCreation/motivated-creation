@@ -4,9 +4,27 @@ class SessionsController < ApplicationController
         if params[:login]
             self.login()
         elsif params[:signup]
-            self.signup()
+            self.display_signup()
         elsif params[:forgot_password]
-            self.forgot_password()
+            self.display_forgot_password()
+        end
+    end
+    
+    def display_signup
+        respond_to do |format|
+            
+            format.html
+            format.js { render 'signup' }
+            
+        end
+    end
+    
+    def display_forgot_password
+        respond_to do |format|
+            
+            format.html
+            format.js { render 'forgot-password' }
+            
         end
     end
     
@@ -19,30 +37,40 @@ class SessionsController < ApplicationController
             
             unless @user
                 format.js {
+                    flash[:error] = ["Invalid email or password"]
                     render 'login'
-                    flash[:error] = ["Invalid email", "Invalid password"]
                 }
             end
             
         end
-    end
-    
-    def signup
-        respond_to do |format|
-            
-            format.html
-            format.js { render 'signup' }
-            
-        end
+        
+        flash = nil
     end
     
     def forgot_password
+        @user = User.find_by(email: params[:email])
+        
         respond_to do |format|
             
             format.html
-            format.js { render 'forgot_password' }
+            format.js {
+                if @user
+                    flash[:success] = ["Recovery email successfully sent!"]
+                else
+                    flash[:error] = ["Invalid email or password"]
+                end
+                render 'login'
+            }
             
         end
+        
+        flash = nil
+    end
+    
+    private
+    
+    def user_params
+      params.require(:user).fetch(:user, {})
     end
     
 end

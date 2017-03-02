@@ -32,13 +32,14 @@ class UsersController < ApplicationController
       format.html
       
       if @user.save
-        format.js { flash[:success] = "" }
+        format.js { flash[:success] = ["Success!"] }
       else
         format.js { flash[:error] = @user.errors.full_messages }
       end
       
     end
     
+    flash = nil
   end
 
   # PATCH/PUT /users/1

@@ -5,6 +5,10 @@ var showSignupModal = false
 $(document).ready(function()
 {
     toggleSignupModal();
+    
+    $("#signup-modal-button-close").on("click", function() {
+        toggleSignupModal();
+    });
 });
 
 function toggleSignupModal()
@@ -19,5 +23,5 @@ function toggleSignupModal()
         closeModal('#signup-modal', '-305px');
     }
     
-    toggleAuthenticationPopover()
+    toggleAuthenticationPopover();
 }

@@ -18,6 +18,13 @@
 var showNavbarMenu = false
 var showAuthenticationPopover = false
 
+$(document).ready(function()
+{
+    $("#authentication-popover-button-close").on("click", function() {
+        toggleAuthenticationPopover();
+    });
+});
+
 function show(element) {
     $(element).show();
 }
@@ -31,6 +38,12 @@ function closeAlert()
     $(".alert").fadeOut(function() {
         $(".alert").remove();
     });
+}
+
+function openAlert()
+{
+    $(".alert").show();
+    $(".alert").animate({right: '20'}, 500);
 }
 
 function openModal(modal, fromTop) {
