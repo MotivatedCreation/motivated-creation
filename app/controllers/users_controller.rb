@@ -33,6 +33,7 @@ class UsersController < ApplicationController
       
       if @user.save
         format.js { flash.now[:success] = ["Success!"] }
+        redirect_to :back
       else
         format.js { flash.now[:error] = @user.errors.full_messages }
       end

@@ -4,16 +4,11 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
-  attr_accessor :user
-  attr_accessor :logged_in
   attr_accessor :page_name
   attr_accessor :viewing_home_page
   
   def initialize
     super
-    @user = User.new
-    
-    @logged_in = false
     @viewing_home_page = false
     @page_name = "Motivated Creation"
   end

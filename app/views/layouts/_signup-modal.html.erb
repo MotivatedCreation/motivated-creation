@@ -3,7 +3,7 @@
         <label>Sign up</label>
         <button class="modal-button-close" id="signup-modal-button-close">&times;</button>
     </div>
-    <%= form_for(@user, remote: true) do |form| %>
+    <%= form_for(User.new, remote: true) do |form| %>
     <div class="modal-content">
         <%= form.text_field :name, id: 'name-input-text', placeholder: 'name' %>
         <%= form.text_field :email, id: 'email-input-text', placeholder: 'email' %>

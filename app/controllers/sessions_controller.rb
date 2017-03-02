@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    
+
     def authenticate
         if params[:login]
             self.login()
@@ -37,23 +37,6 @@ class SessionsController < ApplicationController
             format.js { render('forgot-password') }
             
         end
-    end
-    
-    def login
-        @user = User.find_by(email: params[:email].downcase)
-
-        respond_to do |format|
-            
-            if @user.nil? or not @user.authenticate(params[:password])
-                format.html
-                format.js {
-                    flash.now[:error] = ["Invalid email or password"]
-                    render('./layouts/alert')
-                }
-            end
-            
-        end
-        
     end
     
     def forgot_password
