@@ -1,9 +1,23 @@
 /* global document */
 
+var showSignupModal = false
+
 $(document).ready(function()
 {
-    var overlay = $('.overlay');
-    overlay.show();
-    
-    var signup_modal = $("<%= escape_javascript(render(:partial => './layouts/signup')) %>").appendTo('.container');
+    toggleSignupModal();
 });
+
+function toggleSignupModal()
+{
+    showSignupModal = !showSignupModal;
+    
+    if (showSignupModal)
+    {
+        openModal('#signup-modal', '62px');
+    }
+    else {
+        closeModal('#signup-modal', '-305px');
+    }
+    
+    toggleAuthenticationPopover()
+}

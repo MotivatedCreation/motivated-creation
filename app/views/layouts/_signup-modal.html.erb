@@ -1,9 +1,9 @@
 <div class="modal" id="signup-modal">
-    <%= form_tag(signup_path, remote: true) do %>
     <div class="modal-header">
         <label>Sign up</label>
-        <button class="modal-button-close">&times;</button>
+        <button class="modal-button-close" onclick="toggleSignupModal()">&times;</button>
     </div>
+    <%= form_tag(signup_path, remote: true) do %>
     <div class="modal-content">
         <%= text_field_tag 'name', nil, id: 'name-input-text', placeholder: 'name' %>
         <%= text_field_tag 'email', nil, id: 'email-input-text', placeholder: 'email' %>

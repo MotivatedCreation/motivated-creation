@@ -22,9 +22,17 @@
       <%= yield %>
       <!-- Page Content End -->
       
-      <!-- Popover Start -->
+      <!-- Authentication Popover Start -->
       <%= render partial: './layouts/authentication-popover' %>
-      <!-- Popover End -->
+      <!-- Authentication Popover End -->
+      
+      <!-- Signup Model Start -->
+      <%= render partial: './layouts/signup-modal' %>
+      <!-- Signup Model End -->
+      
+      <!-- Forgot Password Model Start -->
+      <%= render partial: './layouts/forgot-password-modal' %>
+      <!-- Forgot Password Model End -->
       
       <!-- Navigationbar Start -->
       <%= render partial: './layouts/navbar' %>

@@ -50,6 +50,14 @@ $footerHeight: $navbarHeight;
     -ms-align-items: $align;
 }
 
+@mixin align-content($align)
+{
+    align-content: $align;
+    -webkit-align-content: $align;
+    -moz-align-content: $align;
+    -ms-align-content: $align;
+}
+
 @mixin flex-direction($direction)
 {
     flex-direction: $direction;
@@ -157,6 +165,23 @@ html
 /********* Container End *********/
 
 
+/********* Input Start *********/
+
+.input-text
+{
+    padding: 8px;
+    border: none;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid rgb(230, 230, 230);
+
+    @include display(block);
+    @include border-radius($borderRadius);
+}
+
+/********* Input End *********/
+
+
 /********* Alerts Start *********/
 
 .alert
@@ -261,6 +286,14 @@ html
     {
         padding: 10px;
         
+        @include display(flex);
+        @include align-items(center);
+        @include flex-direction(row);
+        @include align-content(center);
+        @include justify-content(space-between);
+        
+        .modal-title { }
+        
         .modal-button-close
         {
             border: none;
@@ -282,25 +315,13 @@ html
         
     @include border-radius($borderRadius);
 }
-
-.input-text
-{
-    padding: 8px;
-    border: none;
-    font-size: 12px;
-    font-family: 'Open Sans', sans-serif;
-    border: 1px solid rgb(230, 230, 230);
-
-    @include display(block);
-    @include border-radius($borderRadius);
-}
     
 #signup-modal
 {
-    width: 300px;
-    left: calc(50% - 140px);
+    top: -305px;
+    height: 305px;
+    left: calc(100% - 305px);
     background-color: white;
-    top: ($navbarHeight + 20px);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     
     .modal-content
@@ -373,10 +394,10 @@ html
 
 #forgot-password-modal
 {
-    width: 300px;
-    left: calc(50% - 140px);
+    top: -180px;
+    height: 180px;
+    left: calc(100% - 305px);
     background-color: white;
-    top: ($navbarHeight + 20px);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     
     .modal-content
@@ -431,9 +452,9 @@ html
 
 #authentication-popover
 {
-    top: -220px;
-    height: 220px;
-    left: calc(100% - 220px);
+    top: -235px;
+    height: 235px;
+    left: calc(100% - 205px);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     
     .modal-content

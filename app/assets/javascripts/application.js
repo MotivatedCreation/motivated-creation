@@ -33,12 +33,12 @@ function closeAlert()
     });
 }
 
-function openAuthenticationPopover() {
-    $('#authentication-popover').animate({top: '62px'}, 500);
+function openModal(modal, fromTop) {
+    $(modal).animate({top: fromTop}, 500);
 }
 
-function closeAuthenticationPopover() {
-    $('#authentication-popover').animate({top: '-240px'}, 500);
+function closeModal(modal, fromTop) {
+    $(modal).animate({top: fromTop}, 500);
 }
 
 function openNavbarMenu() {
@@ -66,9 +66,9 @@ function toggleAuthenticationPopover()
     showAuthenticationPopover = !showAuthenticationPopover;
     
     if (showAuthenticationPopover) {
-        openAuthenticationPopover();
+        openModal('#authentication-popover', '62px');
     }
     else {
-        closeAuthenticationPopover();
+        closeModal('#authentication-popover', '-235px');
     }
 }

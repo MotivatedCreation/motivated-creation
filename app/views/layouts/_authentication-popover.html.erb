@@ -1,8 +1,9 @@
 <div class="modal" id="authentication-popover">
-    <%= form_tag(authenticate_path, remote: true) do %>
     <div class="modal-header">
-        <label>Login</label>
+        <label class="modal-title">Login</label>
+        <button class="modal-button-close" onclick="toggleAuthenticationPopover()">&times;</button>
     </div>
+    <%= form_tag(authenticate_path, remote: true) do %>
     <div class="modal-content">
         <%= text_field_tag 'email', nil, class: 'email-input-text', placeholder: 'email' %>
         <%= password_field_tag 'password', nil, class: 'password-input', placeholder: 'password' %>
