@@ -7,8 +7,13 @@
           <% end %>
         </li>
       <% else %>
+      <li class="navbar-list-item" id="authentication-navbar-list-item">
+          <%= form_tag(authenticate_path, remote: true) do %>
+          <%= submit_tag "", name: "logout", class: "navbar-list-item-button", id: "logout-navbar-list-item-button" %>
+          <% end %>
+        </li>
         <li class="navbar-list-item" id="account-navbar-list-item">
-          <a href="account"> Welcome, <%= current_user.name %>.</a>
+          <a id="welcome-user-link" href="account"> Welcome, <%= current_user.name %>.</a>
         </li>
       <% end %>
       <li class="navbar-list-item" id="menu-navbar-list-item">

@@ -1,5 +1,5 @@
 $(document).ready(function()
 {
-    var alert = $("<%= escape_javascript(render(:partial => './layouts/alert', :object => flash[:error])) %>").appendTo('.container');
+    var alert = $("<%= escape_javascript(render(:partial => './layouts/banner', :object => flash[:error])) %>").appendTo('.container');
     openAlert();
 });

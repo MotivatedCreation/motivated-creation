@@ -878,12 +878,22 @@ html
     font-size: 20px;
 }
 
+#welcome-user-link {
+    color: rgb(0, 194, 201);
+}
+
 #authentication-navbar-list-item-button
 {
-    top: 3px;
-    position: relative;
     background: image-url("account-icon.png") no-repeat center center;
     background-size: 30px;
+}
+
+#logout-navbar-list-item-button
+{
+    top: 4px;
+    position: relative;
+    background: image-url("logout-button.png") no-repeat center center;
+    background-size: 20px;
 }
             
 #home-navbar-menu-item

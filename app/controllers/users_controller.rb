@@ -37,9 +37,7 @@ class UsersController < ApplicationController
       else
         format.js { flash.now[:error] = @user.errors.full_messages }
       end
-      
     end
-    
   end
 
   # PATCH/PUT /users/1

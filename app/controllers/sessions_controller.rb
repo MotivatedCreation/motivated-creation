@@ -1,8 +1,15 @@
 class SessionsController < ApplicationController
 
+    def initialize
+        super
+        @session = Session.new
+    end
+    
     def authenticate
         if params[:login]
             self.login()
+        elsif params[:logout]
+            self.logout()
         elsif params[:display_login]
             self.display_login()
         elsif params[:display_signup]
@@ -39,23 +46,60 @@ class SessionsController < ApplicationController
         end
     end
     
+    def login
+        respond_to do |format|
+            
+            format.html
+            
+            begin
+                @user = @session.login(params[:email], params[:password])
+                session[:user_id] = @user.id
+            
+                #format.js { render('login') }
+                redirect_back(fallback_location: '/home')
+            
+            rescue ActiveRecord::RecordNotFound
+            
+                format.js {
+                    flash.now[:error] = ["Invalid email or password"]
+                    render('./layouts/banner')
+                }
+                
+            rescue Session::InvalidPasswordError
+                
+                format.js {
+                    flash.now[:error] = ["Invalid password"]
+                    render('./layouts/banner')
+                }
+                
+            end
+        end
+    end
+    
+    def logout
+        session.delete(:user_id)
+        redirect_back(fallback_location: '/home')
+    end
+    
     def forgot_password
-        @user = User.find_by(email: params[:email])
-        
         respond_to do |format|
             
             format.html
             format.js {
-                if @user
+                begin
+                    @session.forgot_password(params[:email])
+                
                     flash.now[:success] = ["Recovery email successfully sent!"]
-                else
+                
+                rescue ActiveRecord::RecordNotFound
+                
                     flash.now[:error] = ["Invalid email"]
+                
                 end
-                render('./layouts/alert')
+                
+                render('./layouts/banner')
             }
-            
         end
-        
     end
     
     private
