@@ -8,5 +8,22 @@
     </div>
     <!-- Title Container End -->
     
+    <div class="modal" id="update-user-modal">
+        <%= form_for(current_user, remote: true) do |form| %>
+        <div class="modal-content">
+            <%= form.label "Name" %>
+            <%= form.text_field :name, id: 'name-input-text', placeholder: 'name' %>
+            <%= form.label "Email" %>
+            <%= form.text_field :email, id: 'email-input-text', placeholder: 'email' %>
+            <%= form.label "New Password" %>
+            <%= form.password_field :password, id: 'password-input', placeholder: 'password' %>
+            <%= form.label "Password Confirmation" %>
+            <%= form.password_field :password_confirmation, id: 'password-confirmation-input', placeholder: 'confirm password' %>
+        </div>
+        <div class="modal-footer">
+            <%= submit_tag 'Save', name: 'save', class: 'save-button' %>
+        </div>
+        <% end %>
+    </div>
 </div>
 <!-- Content Container End -->

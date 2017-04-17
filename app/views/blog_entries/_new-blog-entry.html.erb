@@ -1,0 +1,14 @@
+<div class="modal" id="new-blog-entry-modal">
+    <div class="modal-header">
+        <label>New Blog Entry</label>
+    </div>
+    <%= form_for(BlogEntry.new, remote: true) do |form| %>
+    <div class="modal-content">
+        <%= form.text_field :title, class: 'blog-entry-title-input-text', placeholder: 'title' %>
+        <%= form.text_area :text, class: 'blog-entry-text-area', placeholder: 'new entry...' %>
+    </div>
+    <div class="modal-footer">
+        <%= submit_tag 'Post', name: 'post-blog-entry', class: 'post-blog-entry-button' %>
+    </div>
+    <% end %>
+</div>

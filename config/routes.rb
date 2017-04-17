@@ -6,17 +6,17 @@ Rails.application.routes.draw do
   match 'account', to: 'account#account', via: [:get]
   match 'contact', to: 'contact#contact', via: [:get]
   match 'clients', to: 'clients#clients', via: [:get]
-  match 'reviews', to: 'reviews#reviews', via: [:get]
   match 'partners', to: 'partners#partners', via: [:get]
   match 'portfolio', to: 'portfolio#portfolio', via: [:get]
   match 'inquiry', to: 'inquiry#inquiry', via: [:get]
-  match 'shop', to: 'shop#shop', via: [:get]
+  match 'admin', to: 'admin#admin', via: [:get]
   
   match 'signup', to: 'sessions#signup', via: [:post]
   match 'authenticate', to: 'sessions#authenticate', via: [:post]
   match 'forgot_password', to: 'sessions#forgot_password', via: [:post]
   
   resources :users
+  resources :blog_entries
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

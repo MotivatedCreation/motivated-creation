@@ -1,0 +1,16 @@
+<div class="modal" id="blog-entry-modal">
+    <div class="modal-header">
+        <h2 class="blog-entry-header">
+            <%= blog_entry.title %>
+        </h2>
+        <label class="blog-entry-header-label">by <%= blog_entry.user.name %></label>
+    </div>
+    <div class="modal-content">
+        <%= blog_entry.text %>
+    </div>
+    <div class="modal-footer">
+        <label class="blog-entry-footer-label">Posted <%= time_ago_in_words(blog_entry.created_at) %> ago.</label>
+        <br />
+        <%= link_to 'delete', blog_entry, method: :delete, class:"modal-button-close" %>
+    </div>
+</div>

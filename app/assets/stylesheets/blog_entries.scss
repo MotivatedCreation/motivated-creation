@@ -1,0 +1,135 @@
+// Place all the styles related to the Clients controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'application';
+
+.blog-entry-list
+{
+    margin: 80px 0;
+    position: relative;
+    list-style-type: none;
+}
+
+/********* Title Content Start *********/
+
+#blog-title-header
+{
+    width: 380px;
+    
+    @include animation(extend-width, 1.5s, steps(15, end));
+}
+
+/********* Title Content End *********/
+
+
+/********* Blog Entry Modal Start *********/
+
+#new-blog-entry-modal
+{
+    width: 190px;
+    height: 225px;
+    margin: 0 10px;
+    position: relative;
+    background-color: white;
+    left: calc(50% - 95px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    
+    .modal-content
+    {
+        .input-text {
+            width: calc(100% - 20px);
+        }
+        
+        .blog-entry-title-input-text
+        {
+            @extend .input-text;
+            
+            margin: 0 0 10px 0;
+        }
+        
+        .blog-entry-text-area
+        {
+            @extend .input-text;
+            
+            margin: 0 0 10px 0;
+        }
+    }
+
+    .modal-footer
+    {
+        text-align: center;
+        
+        .post-blog-entry-button
+        {
+            width: 100%;
+            border: none;
+            color: white;
+            margin: 0 auto;
+            font-size: 12px;
+            font-family: 'Open Sans', sans-serif;
+            padding: 9px 18px 9px 18px;
+            background: rgb(0, 194, 201);
+    
+            @include display(block);
+            @include border-radius($borderRadius);
+        }
+
+        .post-blog-entry-button:hover
+        {
+            cursor: pointer;
+            background: rgb(0, 184, 191);
+            box-shadow: inset 0 0 10px 0 rgba(30, 30, 30, 0.2);
+        }
+    
+        .post-blog-entry-button:active
+        {
+            cursor: pointer;
+            background: rgb(0, 164, 171);
+        }
+    }
+}
+
+#blog-entry-modal
+{
+    height: auto;
+    position: relative;
+    background-color: white;
+    width: calc(100% - 20px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+    .modal-header
+    {
+        @include flex-direction(column);
+    }
+    
+    .blog-entry-header-label
+    {
+        color: gray;
+        font-size: 12px;
+    }
+    
+    .blog-entry-footer-label
+    {
+        color: gray;
+        font-size: 12px;
+    }
+    
+    .modal-footer {
+        text-align: center;
+    }
+}
+
+/********* Blog Entry Modal End *********/
+
+
+/********* Media Start *********/
+
+@media all and (max-width: 414px)
+{
+    #clients-title-header {
+        width: 152.5px;
+    }
+}
+
+/********* Media End **********/

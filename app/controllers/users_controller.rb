@@ -26,7 +26,8 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
+    @user.accountType = 0
+    
     respond_to do |format|
       
       format.html
@@ -44,12 +45,13 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
+      format.html
+      
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        format.js { flash.now[:success] = ["Success!"] }
+        redirect_to :back
       else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.js { flash.now[:error] = @user.errors.full_messages }
       end
     end
   end

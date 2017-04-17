@@ -1,6 +1,6 @@
 <navbar class="navbar">
     <ul class="navbar-list">
-      <% if not session[:user_id] %>
+      <% if not logged_in? %>
         <li class="navbar-list-item" id="authentication-navbar-list-item">
           <%= form_tag(authenticate_path, remote: true) do %>
           <%= submit_tag "", name: "display_login", class: "navbar-list-item-button", id: "authentication-navbar-list-item-button" %>

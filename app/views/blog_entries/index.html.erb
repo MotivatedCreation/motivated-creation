@@ -1,0 +1,24 @@
+<!-- Content Container Start -->
+<div class="content-container">
+    
+    <!-- Title Container Start -->
+    <div class="title-content-container">
+        <%= image_tag "blog-icon.png", :class => "title-logo", :id => "blog-title-logo" %>
+        <h1 class="title-header" id="blog-title-header">Blog.<span class="title-bar-span">|</span></h1>
+    </div>
+    <!-- Title Container End -->
+    
+    <!-- New Blog Entry Start -->
+    <% if logged_in? and is_admin? %>
+      <%= render "new-blog-entry" %>
+    <% end %>
+    <!-- New Blog Entry End -->
+    
+    <!-- Blog Entries Start -->
+    <ul class="blog-entry-list">
+      <%= render @blog_entries %>
+    </ul>
+    <!-- Blog Entries End -->
+    
+</div>
+<!-- Content Container End -->
