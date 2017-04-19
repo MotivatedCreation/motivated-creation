@@ -60,3 +60,16 @@ function toggleNavbarMenu()
         closeNavbarMenu();
     }
 }
+
+function openAlert(alert)
+{
+    $(alert).show();
+    $(alert).animate({right: '20'}, 500);
+}
+
+function closeAlert(alert)
+{
+    $(alert).fadeOut(function() {
+        $(alert).remove();
+    });
+}

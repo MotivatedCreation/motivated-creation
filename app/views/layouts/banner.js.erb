@@ -4,18 +4,5 @@
 $(document).ready(function()
 {
     var alert = $("<%= escape_javascript(render(:partial => './layouts/banner', :object => flash[:error])) %>").appendTo('.container');
-    openAlert();
+    openAlert(alert);
 });
-
-function closeAlert()
-{
-    $(".alert").fadeOut(function() {
-        $(".alert").remove();
-    });
-}
-
-function openAlert()
-{
-    $(".alert").show();
-    $(".alert").animate({right: '20'}, 500);
-}

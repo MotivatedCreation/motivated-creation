@@ -1,5 +1,8 @@
+/* global document */
+/* global openAlert */
+
 $(document).ready(function()
 {
     var alert = $("<%= escape_javascript(render(:partial => './layouts/banner', :object => flash[:error])) %>").appendTo('.container');
-    openAlert();
+    openAlert(alert);
 });

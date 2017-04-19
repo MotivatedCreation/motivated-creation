@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -33,6 +33,8 @@ class UsersController < ApplicationController
       format.html
       
       if @user.save
+        UserMailer.welcome_email(@user).deliver_later
+        
         format.js { flash.now[:success] = ["Success!"] }
         redirect_to :back
       else

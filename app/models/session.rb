@@ -13,6 +13,8 @@ class Session
     
     def forgot_password(email)
         @user = User.find_by!(email: email.downcase)
+        
+        UserMailer.forgot_password(@user).deliver_later
     end
 end
 

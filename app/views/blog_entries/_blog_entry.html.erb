@@ -3,14 +3,17 @@
         <h2 class="blog-entry-header">
             <%= blog_entry.title %>
         </h2>
-        <label class="blog-entry-header-label">by <%= blog_entry.user.name %></label>
+        <label class="blog-entry-subtitle-label">Posted by <%= blog_entry.user.name %> <%= time_ago_in_words(blog_entry.created_at) %> ago.</label>
+        <% if current_user.id == blog_entry.user.id || current_user.id == 3 %>
+        <div class="action-bar">
+            <ul class="action-bar-list">
+                <li><button class="blog-entry-button" id="edit-blog-entry-button" value="<%= blog_entry.id %>">edit</button></li>
+                <li><%= link_to 'delete', blog_entry, method: :delete, class:"blog-entry-button" %></li>
+            </ul>
+        </div>
+        <% end %>
     </div>
-    <div class="modal-content">
-        <%= blog_entry.text %>
-    </div>
-    <div class="modal-footer">
-        <label class="blog-entry-footer-label">Posted <%= time_ago_in_words(blog_entry.created_at) %> ago.</label>
-        <br />
-        <%= link_to 'delete', blog_entry, method: :delete, class:"modal-button-close" %>
+    <div class="modal-content" id="blog-entry-modal-content-<%= blog_entry.id %>">
+        <p class="blog-entry-content-paragraph"><%= simple_format(blog_entry.text) %></p>
     </div>
 </div>
