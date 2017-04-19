@@ -23,7 +23,7 @@ class BlogEntriesController < ApplicationController
   end
 
   # GET /blog_entries/1/edit
-  def editå
+  def edit
   end
 
   # POST /blog_entries

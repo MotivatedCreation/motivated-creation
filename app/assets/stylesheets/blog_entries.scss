@@ -110,8 +110,10 @@
     }
 }
 
-#blog-entry-modal
+.blog-entry-modal
 {
+    @extend .modal;
+    
     width: 100%;
     height: auto;
     position: relative;
